@@ -1,0 +1,46 @@
+﻿@model ZipbaitsOrbitModel
+<h1>
+    <img src="~/Images/Rigge/Rigge.png" class="align-content-around" width="380" />
+    </h2>
+    <form asp-area="" asp-controller="Home2" asp-action="BuyRigge">
+        <label class="text-black fw-bold">Size:</label>
+        <br />
+        <div>
+            <input type="radio" id="1" asp-for="Size" value="30" checked="checked" /> 30mm / 10$
+
+        </div>
+        <br />
+        <div>
+            <input type="radio" id="1" asp-for="Size" value="90" /> 90 / 15$
+
+        </div>
+        <br />
+        <div>
+            <input type="radio" id="1" asp-for="Size" value="110" /> 110 / 17$
+
+        </div>
+        <label class="text-black fw-bold">Colour: </label>
+        <br />
+        <div>
+            <input asp-for="Colour" type="radio" id="2" checked="checked" value="col-1" />
+            <img src="~/Images/Rigge/col-1.png" width="180" />
+        </div>
+        <br />
+        <div>
+            <br />
+            <input asp-for="Colour" type="radio" id="2" value="col-2" />
+            <img src="~/Images/Rigge/col-2.png" width="180"/>
+
+        </div>
+        <br />
+        <div>
+
+            <input asp-for="Colour" type="radio" id="2"  value="col-3" />
+            <img src="~/Images/Rigge/col-3.png" width="180" />
+        </div>
+        <br />
+        <button class="btn btn-primary" type="submit" >Buy</button>
+
+
+
+    </form>

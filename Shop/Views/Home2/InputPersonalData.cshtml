@@ -1,0 +1,21 @@
+﻿@model Order 
+<form asp-controller="Home2" asp-action="SaveData">
+    <div>
+        <label>Name: </label>
+        <input asp-for="Name" />
+    </div>
+    <hr />
+    <br />
+    <div>
+        <label>SureName: </label>
+        <input asp-for="Sername" />
+    </div>
+    <hr />
+    <br />
+     <div>
+        <label>Phone Number: </label>
+        <input asp-for="PhoneNumber" />
+    </div>
+    <br />
+    <button class="btn btn-primary" >Submit</button>
+</form>

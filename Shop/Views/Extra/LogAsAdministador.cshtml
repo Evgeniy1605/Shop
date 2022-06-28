@@ -1,0 +1,15 @@
+﻿@model InputModel
+
+<div>
+    <label>Name: </label>
+    <input type="text" />
+</div>
+<hr />
+<br />
+<form asp-controller="Extra" asp-action="TryLogAsAdmin">
+    <div>
+        <label>PassCode: </label>
+        <input asp-for="IntInput" type="password" />
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

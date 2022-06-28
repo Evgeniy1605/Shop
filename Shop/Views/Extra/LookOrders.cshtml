@@ -1,0 +1,12 @@
+﻿@model List<Shop.Models.Order>
+@foreach (var item in Model)
+{
+    <div>
+        Id: @item.Id, Name: @item.Name, Phone number: @item.PhoneNumber, Order: @item.BasketList, Sum of order: @item.Price
+    </div>
+}
+<form asp-controller="Extra" asp-action="DeleteOrder">
+    <button class="btn btn-primary" type= "submit">Delete order</button>
+
+</form>
+

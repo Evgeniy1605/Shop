@@ -1,0 +1,16 @@
+﻿@model List<Shop.Models.PerchaseModel>
+<h1>
+
+</h1>
+
+@foreach (var item in Model)
+{
+    <form asp-controller="Home2" asp-action="@item.Page">
+        <div>
+            @item.Brend @item.Name
+            <button class="btn btn-primary" type="submit">Buy</button>
+        </div>
+
+    </form>
+    
+}

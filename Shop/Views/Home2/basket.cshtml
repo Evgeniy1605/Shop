@@ -1,0 +1,21 @@
+﻿@model List<Shop.Models.BasketModel>
+<h1 class="text-center">Your Basccket</h1>
+<ul>
+
+    @foreach (var item in Model)
+    {
+        <li>@item.Brend 
+            @item.Name
+            @item.Price $
+        </li>
+    }
+</ul>
+@{
+    ViewData["Tittle"] = "Your final price is";
+}
+<h1>@ViewData["Tittle"] @ViewData["Message"]</h1>
+<h2></h2>
+<form asp-controller="Home2" asp-action="InputPersonalData" >
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+

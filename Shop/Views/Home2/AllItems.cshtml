@@ -1,0 +1,91 @@
+﻿@model List<Shop.Models.PerchaseModel>
+<h1>Items</h1>
+<form asp-area="" asp-controller="Home2" asp-action="BuyMontero" asp>
+    <div>
+        <img src="~/Images/Montero.png" width="80" />
+        @Model[0].Brend @Model[0].Name @Model[0].Price $
+        <button type="submit" class="btn btn-primary">Buy</button>
+    </div>
+</form>
+<br />
+<form asp-controller="Home2" asp-action="OrbitPage">
+    <div>
+        <img src="~/Images/Orbit.png" width="80" />
+        @Model[1].Brend @Model[1].Name 
+        <button type="submit" class="btn btn-primary">Buy</button>
+
+    </div>
+</form>
+<br />
+<form asp-controller="Home2" asp-action="Malas">
+    <div>
+        <img src="~/Images/Malas/Malas.png" width="80" />
+        @Model[2].Brend @Model[2].Name 
+        <button type="submit" class="btn btn-primary">Buy</button>
+
+    </div>
+</form>
+<br />
+<form asp-controller="Home2" asp-action="Rigge">
+    <div>
+        <img src="~/Images/Rigge/Rigge.png" width="80" />
+        @Model[3].Brend @Model[3].Name 
+        <button type="submit" class="btn btn-primary">Buy</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <ul>
+
+
+
+@foreach (var item in Model)
+{
+                <form asp-area="" asp-controller="Home2" asp-action="Buy">
+                <li>
+                    <img width="50" src="@item.Image">
+            @item.Brend
+            @item.Name
+            @item.Price
+
+
+
+                </li>
+                <Buttom class="btn btn-primary">Buy</Buttom>
+
+                </form>
+
+}
+</ul>
+-->

@@ -1,0 +1,39 @@
+﻿@model ZipbaitsOrbitModel
+<h2>
+    <img src="~/Images/Orbit.png" class="align-content-around" />
+</h2>
+<form asp-controller="Home2" asp-action="BuyOrbit">
+    <div>
+        Size 80
+        <input type="checkbox" @Html.CheckBoxFor(x =>x.Size80)
+    </div>
+    <div>
+        Size 110
+        <input asp-for="Size110" type="checkbox" />
+    </div>
+    <div>
+        Size 130
+        <input asp-for=Size130 type="checkbox" />
+    </div>
+    <br />
+    <label>Choose a color</label>
+    <br />
+    <br />
+
+    @Html.RadioButtonFor(x => x.Colour, value:"col_1", htmlAttributes:new{@checked = true}) <img src="~/Images/Orbit/col_1.png" width="140" />
+    <br />
+    <br />
+    @Html.RadioButtonFor(x => x.Colour, "Col_2") <img src="~/Images/Orbit/col_2.png" width="140" />
+    <br />
+    <br />
+    @Html.RadioButtonFor(x => x.Colour, "Col_3") <img src="~/Images/Orbit/col_3.png" width="140" />
+    <br />
+    <br />
+    <input asp-for=Colour type="radio" value="col_4" checked="checked" /> <img src="~/Images/Orbit/col_4.png" width="140" />
+    <br />
+    <br />
+    <div>
+        <button type="submit" class="btn btn-primary">Buy</button>
+
+    </div>
+</form>
