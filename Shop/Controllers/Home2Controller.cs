@@ -229,6 +229,13 @@ namespace Shop.Controllers
             _content.SaveChanges();
             return View("ThankYou");
         }
+        public IActionResult Try()
+        {
+            PerchaseModel malas1 = new PerchaseModel() { Brend = "Lucky Craft", Name = "Malas", Price = 30, Image = "Malas", Page = "Malas", Size = "90", Colour = "_", Discount = 0, };
+            _content.Add(malas1);
+            _content.SaveChanges();
+            return View();
+        }
     }
 
 }
