@@ -3,6 +3,7 @@
    
     public class PerchaseModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Brend { get; set; }
         public float Price { get; set; }
