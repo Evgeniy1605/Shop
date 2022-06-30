@@ -54,5 +54,11 @@ namespace Shop.Controllers
             }
 
         }
+        public IActionResult AddNewPerchse()
+        {
+            InputModel input = new InputModel();
+            return View(input);
+        }
+        
     }
 }
