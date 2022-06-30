@@ -59,6 +59,10 @@ namespace Shop.Controllers
             InputModel input = new InputModel();
             return View(input);
         }
-        
+        public IActionResult SubminNewPerchas(InputModel input)
+        {
+
+            return View(input);
+        }
     }
 }
