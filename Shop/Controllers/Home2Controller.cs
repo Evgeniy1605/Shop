@@ -38,10 +38,7 @@ namespace Shop.Controllers
         }
         public IActionResult AllItems()
         {
-            items.Add(Montero);
-            items.Add(orbit);
-            items.Add(malas);
-            items.Add(rigge);
+            items = _content.AllPerchaseItems.ToList();
             return View(items);
         }
         public IActionResult BuyMontero()
@@ -187,10 +184,7 @@ namespace Shop.Controllers
         }
         public IActionResult FindItem (SearchModel search)
         {
-            items.Add(Montero);
-            items.Add(orbit);
-            items.Add(malas);
-            items.Add(rigge);
+            items = _content.AllPerchaseItems.ToList();
             var result = new List<PerchaseModel> ();
             result = items.Where(x => x.Name.Contains(search.Input)).ToList();
             return View(result);
@@ -231,11 +225,7 @@ namespace Shop.Controllers
         }
         public IActionResult Try()
         {
-            PerchaseModel rigge = new PerchaseModel() { Brend = "Zipbaits", Name = "Rigge", Page = "Rigge", Discount = 0, Colour = "_", Image = "Rigge", Size = "_", Price = 0 };
-
-            _content.Add(rigge);
-            _content.SaveChanges();
-
+            
             return View();
         }
     }
