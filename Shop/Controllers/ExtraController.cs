@@ -61,8 +61,18 @@ namespace Shop.Controllers
         }
         public IActionResult SubminNewPerchas(InputModel input)
         {
+            if (input.Brend == null || input.Name == null || input.NameOfPage == null || input.InformatinOfThePage == null || input.Image == null)
+            {
+                return View("EmptyGAp");
+            }
+            
+           
+            else
+            {
+                PerchaseModel NewPerchase = new PerchaseModel() { Name = input.Name, Brend = input.Brend, Image = input.Image, Page = input.NameOfPage, Price = 0, Colour = "_", Discount = 0, Size = "_"};
+                return View();
 
-            return View(input);
+            }
         }
     }
 }
