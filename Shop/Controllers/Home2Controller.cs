@@ -26,7 +26,6 @@ namespace Shop.Controllers
         public IActionResult Index()
         {
 
-            
 
             return View();
         }
