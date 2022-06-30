@@ -231,7 +231,10 @@ namespace Shop.Controllers
         }
         public IActionResult Try()
         {
-            
+            PerchaseModel rigge = new PerchaseModel() { Brend = "Zipbaits", Name = "Rigge", Page = "Rigge", Discount = 0, Colour = "_", Image = "Rigge", Size = "_", Price = 0 };
+
+            _content.Add(rigge);
+            _content.SaveChanges();
 
             return View();
         }
