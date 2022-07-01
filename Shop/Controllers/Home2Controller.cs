@@ -26,12 +26,14 @@ namespace Shop.Controllers
         public IActionResult Index()
         {
 
-
             return View();
         }
 
         public IActionResult basket()
         {
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
 
             return View(BasketItem);
         }
@@ -49,10 +51,7 @@ namespace Shop.Controllers
             montero.Discount = Montero.Discount;
             BasketItem.Add(montero);
 
-            foreach (var item in BasketItem)
-            {
-                FN += item.Price;
-            }
+            FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
@@ -104,10 +103,7 @@ namespace Shop.Controllers
 
                 }
                 BasketItem.Add(orbit1);
-                foreach (var item in BasketItem)
-                {
-                    FN += item.Price;
-                }
+                FN = BasketItem.Sum(x => x.Price);
                 int x = (int)FN;
                 ViewData["Message"] = x.ToString();
                 return View("basket", BasketItem);
@@ -135,10 +131,7 @@ namespace Shop.Controllers
             malas1.Name = this.malas.Name;
             malas1.Size = this.malas.Size;
             BasketItem.Add(malas1);
-            foreach (var item in BasketItem)
-            {
-                FN += item.Price;
-            }
+            FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
             ViewData["Message"] = x.ToString();
 
@@ -166,10 +159,7 @@ namespace Shop.Controllers
             rigge1.Size = rigge.Size;
             rigge1.Colour = rigge.Colour;
             BasketItem.Add(rigge1);
-            foreach (var item in BasketItem)
-            {
-                FN += item.Price;
-            }
+            FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
             ViewData["Message"] = x.ToString();
 
@@ -213,10 +203,7 @@ namespace Shop.Controllers
             this.orders.BasketList = or.BasketList;
             this.orders.BasketList = or.BasketList;
             /////
-            foreach (var item in BasketItem)
-            {
-                FN += item.Price;
-            }
+            FN = BasketItem.Sum(x => x.Price);
             or.Price = (int)FN;
             _content.Add(or);
             _content.SaveChanges();
@@ -243,10 +230,7 @@ namespace Shop.Controllers
                 perchase.Price = 10;
             BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size};
             BasketItem.Add(basketModel);
-            foreach (var item in BasketItem)
-            {
-                FN += item.Price;
-            }
+            FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
             ViewData["Message"] = x.ToString();
 
