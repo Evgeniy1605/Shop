@@ -85,5 +85,9 @@ namespace Shop.Controllers
 
             }
         }
+        public IActionResult BackToFilingGaps()
+        {
+            return View("AddNewPerchse");
+        }
     }
 }

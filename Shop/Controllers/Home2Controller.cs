@@ -227,6 +227,33 @@ namespace Shop.Controllers
             
             return View();
         }
+
+        private PerchaseModel inquisitor = new PerchaseModel() { Brend = "Strike pro", Name = "Inquisitor", Discount = 0 };
+        public IActionResult Inquisitor()
+        {
+            return View(inquisitor);
+        }
+        public IActionResult BuyInquisitor (PerchaseModel perchase)
+        {
+            if (perchase.Size == "80")
+                perchase.Price = 5;
+            if (perchase.Size == "110")
+                perchase.Price = 7;
+            else if (perchase.Size == "130")
+                perchase.Price = 10;
+            BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size};
+            BasketItem.Add(basketModel);
+            foreach (var item in BasketItem)
+            {
+                FN += item.Price;
+            }
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+
+            return View("basket", BasketItem);
+
+            
+        }
     }
 
 }

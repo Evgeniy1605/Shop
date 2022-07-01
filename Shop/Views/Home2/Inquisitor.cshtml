@@ -1,0 +1,32 @@
+﻿@model PerchaseModel
+<img src="~/Images/Inquisitor.png" width="490" />
+<form asp-area="" asp-controller="Home2" asp-action="BuyInquisitor">
+    <p>Size:</p>
+    <input asp-for="Size" type="radio" checked="checked" id="2" value="80" />80 mm 5$
+    <br />
+    <br />
+    <input asp-for="Size" type="radio" id="2" value="110" />110 mm 7$
+    <br />
+    <br />
+    <input asp-for="Size" type="radio" id="2" value="130" />130 mm 10$
+    <hr />
+
+    <p>Chose a colour:</p>
+    <div>
+        <input asp-for="Colour" type="radio" value="col-1" checked="checked" id="1" />
+        <img src="~/Images/Inquisitor/col-1.png" width="180" />
+    </div>
+    <br />
+    <div>
+        <input asp-for="Colour" type="radio" value="col-2" id="1" />
+        <img src="~/Images/Inquisitor/col-2.png" width="180" />
+    </div>
+    <br />
+    <div>
+        <input asp-for="Colour" type="radio" value="col-3" id="1" />
+        <img src="~/Images/Inquisitor/col-3.png" width="180" />
+    </div>
+    <hr />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+
+</form>
