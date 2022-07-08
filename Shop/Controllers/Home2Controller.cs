@@ -8,21 +8,21 @@ namespace Shop.Controllers
     public class Home2Controller : Controller
     {
         public List<PerchaseModel> items = new List<PerchaseModel>();
-        
-        public static List<BasketModel> BasketItem = new List<BasketModel>() {};
+
+        public static List<BasketModel> BasketItem = new List<BasketModel>() { };
         public float FN { get; set; }
 
 
         /// <summary>
         /// ////////
-        public List<Order> FackeData = new List<Order> ();
+        public List<Order> FackeData = new List<Order>();
         /// </summary>
 
-        
+
         public PerchaseModel Montero = new PerchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
         public ZipbaitsOrbitModel orbit = new ZipbaitsOrbitModel() { Name = "Orbit", Brend = "Zipbaits", Image = "Malas", Discount = 0, Page = "OrbitPage" };
 
-        
+
         public IActionResult Index()
         {
 
@@ -109,10 +109,10 @@ namespace Shop.Controllers
                 return View("basket", BasketItem);
             }
         }
-/// <summary>
-/// ////////////////////
-/// </summary>
-        PerchaseModel malas = new PerchaseModel() { Brend = "Lucky Craft", Name ="Malas", Price = 30, Image = "Malas", Page = "Malas", Size = "90" };
+        /// <summary>
+        /// ////////////////////
+        /// </summary>
+        PerchaseModel malas = new PerchaseModel() { Brend = "Lucky Craft", Name = "Malas", Price = 30, Image = "Malas", Page = "Malas", Size = "90" };
         public IActionResult Malas()
         {
             return View(malas);
@@ -126,7 +126,7 @@ namespace Shop.Controllers
                 malas.Price = 10;
             BasketModel malas1 = new BasketModel();
             malas1.Brend = this.malas.Brend;
-            malas1.Price= malas.Price;
+            malas1.Price = malas.Price;
             malas1.Colour = malas.Colour;
             malas1.Name = this.malas.Name;
             malas1.Size = this.malas.Size;
@@ -143,7 +143,7 @@ namespace Shop.Controllers
         {
             return View(rigge);
         }
-        public IActionResult BuyRigge (ZipbaitsOrbitModel rigge)
+        public IActionResult BuyRigge(ZipbaitsOrbitModel rigge)
         {
             if (rigge.Size == "30")
                 rigge.Price = 10;
@@ -171,10 +171,10 @@ namespace Shop.Controllers
             return View(model);
 
         }
-        public IActionResult FindItem (SearchModel search)
+        public IActionResult FindItem(SearchModel search)
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel> ();
+            var result = new List<PerchaseModel>();
             result = items.Where(x => x.Name.Contains(search.Input)).ToList();
             return View(result);
         }
@@ -182,7 +182,7 @@ namespace Shop.Controllers
         public Order orders = new Order();
         public IActionResult InputPersonalData(Order order)
         {
-            
+
             return View(order);
         }
         private readonly OrderDbConenction _content;
@@ -190,7 +190,7 @@ namespace Shop.Controllers
         {
             _content = content;
         }
-        public IActionResult SaveData (Order or)
+        public IActionResult SaveData(Order or)
         {
             foreach (var item in BasketItem)
             {
@@ -211,7 +211,7 @@ namespace Shop.Controllers
         }
         public IActionResult Try()
         {
-            
+
             return View();
         }
 
@@ -220,7 +220,7 @@ namespace Shop.Controllers
         {
             return View(inquisitor);
         }
-        public IActionResult BuyInquisitor (PerchaseModel perchase)
+        public IActionResult BuyInquisitor(PerchaseModel perchase)
         {
             if (perchase.Size == "80")
                 perchase.Price = 5;
@@ -228,7 +228,7 @@ namespace Shop.Controllers
                 perchase.Price = 7;
             else if (perchase.Size == "130")
                 perchase.Price = 10;
-            BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size};
+            BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size };
             BasketItem.Add(basketModel);
             FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
@@ -236,8 +236,45 @@ namespace Shop.Controllers
 
             return View("basket", BasketItem);
 
-            
-        }
-    }
 
+        }
+        public PerchaseModel magallon = new PerchaseModel();
+        
+        public IActionResult Magallon()
+        {
+            var AllItemsList = _content.AllPerchaseItems.ToList();
+
+            foreach (var item in AllItemsList)
+            {
+                if (item.Id == 14)
+                {
+                    magallon = item;
+                }
+            }
+
+
+
+            return View(magallon);
+        }
+        public IActionResult BuyMagallon(PerchaseModel model)
+        {
+            var AllItemsList = _content.AllPerchaseItems.ToList();
+
+            foreach (var item in AllItemsList)
+            {
+                if (item.Id == 14)
+                {
+                    magallon = item;
+                }
+            }
+            var basketModel = new BasketModel() { Name = magallon.Name, Colour = model.Colour, Brend = magallon.Brend, Discount = magallon.Discount, Image = magallon.Image, Page = magallon.Page, Price = magallon.Price, Size = magallon.Size };
+            BasketItem.Add(basketModel);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+
+            return View("basket", BasketItem);
+        }
+
+    }
 }
