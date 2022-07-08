@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Titte"] = "Index";
+}
+<h1>Upload Image file (Only in extention .png)</h1>
+<hr />
+<form method="post" enctype="multipart/form-data" asp-controller="Image" asp-action="Index">
+    <input type="file" name="ImageFile" />
+    <input type="submit" value="Upload Image File" />
+    <hr />
+    <h4 >@ViewData["Message"]</h4>
+
+</form>
