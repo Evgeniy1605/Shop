@@ -12,6 +12,8 @@
         public string Colour { get; set; }
         public string Size { get; set; }
         public string Page { get; set; }
+        public string Type { get; set; }
+        public string Property { get; set; }
 
 
 
