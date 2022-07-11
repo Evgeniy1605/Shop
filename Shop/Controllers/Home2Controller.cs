@@ -29,6 +29,7 @@ namespace Shop.Controllers
             return View();
         }
 
+
         public IActionResult basket()
         {
             FN = BasketItem.Sum(x => x.Price);
