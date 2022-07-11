@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.try:hover{
+    background-color:blue;
+    color : white;
+}
