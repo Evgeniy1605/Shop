@@ -1,20 +1,56 @@
 ﻿@model List<Shop.Models.PerchaseModel>
 <h1>Items</h1>
 <br />
-@foreach (var item in Model)
-{
-    string path = "~/Images/" + item.Image + ".png";
+<div class="container mydiv">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            var random = new Random();
+            int sold = random.Next(1, 100);
+            int AvalibleNow = random.Next(1, 50);
+            string path = "~/Images/" + item.Image + ".png";
 
-    <form asp-controller="Home2" asp-action="@item.Page" >
-        <div>
-            <img src="@path" width="80" asp-append-version = "true" />
-             @item.Brend @item.Name 
-            <button type="submit" class="btn btn-primary">Buy</button>
-        </div>
-        <br />
-    </form> 
+            <div class="col-md-4">
+                <!-- bbb_deals -->
+                <form asp-controller="Home2" asp-action="@item.Page">
+                    <button type="submit" class="bg-white">
+                        <div class="bbb_deals">
+                            <div class="ribbon ribbon-top-right"><span>@item.Discount% OFF</span></div>
+                            <div class="bbb_deals_title">Today's Best Offer</div>
+                            <div class="bbb_deals_slider_container">
+                                <div class=" bbb_deals_item">
+                                    <div class="bbb_deals_image"><img src="@path" asp-append-version="true" alt=""></div>
+                                    <div class="bbb_deals_content">
+                                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                            <div class="bbb_deals_item_category"><a href="#">@item.Type</a></div>
+                                            <div>@item.Brend @item.Name</div>
+                                            <div class="bbb_deals_item_price_a ml-auto">₹40,000</div>
+                                        </div>
+                                        <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                            <div class="bbb_deals_item_name">Current price  </div>
+                                            <div class="bbb_deals_item_price ml-auto"> @item.MinMaxPrice $</div>
+                                        </div>
+                                        <div class="available">
+                                            <div class="available_line d-flex flex-row justify-content-start">
+                                                <div class="available_title">Available: <span>@AvalibleNow</span></div>
+                                            </div>
+                                            <div class="sold_title ml-auto">Already sold: <span>@sold</span></div>
+                                            <div class="available_bar"><span style="width:17%"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            </div>
 
-}
+
+        }
+
+
+    </div>
+</div>
 
 
 
@@ -53,19 +89,16 @@
 
 @foreach (var item in Model)
 {
-                    <form asp-area="" asp-controller="Home2" asp-action="Buy">
-                    <li>
-                        <img width="50" src="@item.Image">
-            @item.Brend
-            @item.Name
-            @item.Price
+    string path = "~/Images/" + item.Image + ".png";
 
-
-
-                    </li>
-                    <Buttom class="btn btn-primary">Buy</Buttom>
-
-                    </form>
+                <form asp-controller="Home2" asp-action="@item.Page" >
+                    <div>
+                        <img src="@path" width="80" asp-append-version = "true" />
+            @item.Brend @item.Name
+                        <button type="submit" class="btn btn-primary">Buy</button>
+                    </div>
+                    <br />
+                </form>
 
 }
 </ul>
