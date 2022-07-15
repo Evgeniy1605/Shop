@@ -14,6 +14,7 @@
         public string Page { get; set; }
         public string Type { get; set; }
         public string Property { get; set; }
+        public string MinMaxPrice { get; set; }
 
 
 
