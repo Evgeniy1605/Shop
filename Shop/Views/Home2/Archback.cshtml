@@ -1,0 +1,29 @@
+﻿@model PerchaseModel
+@{
+    var image = "~/Images/" + Model.Image + ".png";
+    <p1 class="align-content-center mb-5 w-100">
+        <img src="@image" asp-append-version="true" class="align-content-center w-5" />
+
+    </p1>
+}
+<form asp-area="" asp-controller="Home2" asp-action="BuyArchback">
+    <p>Chose a colour:</p>
+    <div>
+        <input asp-for="Colour" type="radio" value="col-1"  checked ="checked" id="1"  /> 
+        <img src="~/Images/Archback/col-1.png" width="120" />12$
+    </div>
+    <br />
+    <div>
+        <input asp-for="Colour" type="radio" value="col-2"  id="1" /> 
+        <img src="~/Images/Archback/col-2.png" width="120" />12$
+    </div>
+    <br />
+    <div>
+        <input asp-for="Colour" type="radio" value="col-3" id="1"  /> 
+        <img src="~/Images/Archback/col-3.png" width="120" />12$
+    </div>
+    <br />
+    <br />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+    
+</form>
