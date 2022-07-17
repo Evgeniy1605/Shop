@@ -276,7 +276,27 @@ namespace Shop.Controllers
 
             return View("basket", BasketItem);
         }
-        
+        public new PerchaseModel archback = new PerchaseModel();
+        public IActionResult Archback()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 15).ToList();
+            archback = i[0];
+            return View(archback);
+        }
+
+        public IActionResult BuyArchback(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 15).ToList();
+            archback = i[0];
+            archback.Colour = model.Colour;
+
+            var basketItem = new BasketModel { Name = archback.Name, Brend = archback.Brend, Id = archback.Id, Colour = archback.Colour, Discount = archback.Discount, Price = archback.Price, Size = archback.Size, Image = archback.Image, Page = archback.Page, Type = archback.Type };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
 
     }
 }
