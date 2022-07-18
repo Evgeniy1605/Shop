@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
@@ -10,9 +11,10 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(OrderDbConenction))]
-    partial class OrderDbConenctionModelSnapshot : ModelSnapshot
+    [Migration("20220717184916_addedAdmins")]
+    partial class addedAdmins
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

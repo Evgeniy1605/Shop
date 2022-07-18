@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 
@@ -10,6 +11,13 @@ builder.Services.AddDbContext<OrderDbConenction>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefoultConnection"));
 
 });
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(option =>
+    {
+        option.LoginPath = "/login";
+
+        option.AccessDeniedPath = "/denied";
+    });
 
 var app = builder.Build();
 
@@ -25,7 +33,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
