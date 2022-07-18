@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Shop.Controllers
 {
@@ -10,6 +11,7 @@ namespace Shop.Controllers
             _environment = environment;
 
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();

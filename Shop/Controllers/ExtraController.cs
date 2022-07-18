@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.Data;
 using Shop.Models;
 
@@ -23,12 +24,12 @@ namespace Shop.Controllers
 
             return View();
         }
-        public IActionResult TryLogAsAdmin(InputModel model)
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminPage()
         {
-            if (model.IntInput == 666)
-                return View("AdminPage");
-            else 
-                return View("LogError");
+            
+                return View();
+            
         }
         public static List<Order> orders = new List<Order>();
         private readonly OrderDbConenction _content;
