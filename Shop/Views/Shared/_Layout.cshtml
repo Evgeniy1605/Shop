@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Shop.styles.css" asp-append-version="true" />
 </head>
-<body> 
-    <header >
+<body>
+    <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid bg-info bg-gradient">
                 <a class="navbar-brand" asp-area="" asp-controller="Home2" asp-action="Index">
@@ -35,11 +35,26 @@
                         </li>
 
                     </ul>
-                    <a class="nav-link text-dark align-content-lg-end try" asp-area="" asp-controller="Extra" asp-action="ChoooseTypeOfAccount">
-                        <img src="~/Images/Icons/icons8-male-user-64.png" width="45" />
-                    </a>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link text-dark align-content-lg-end try" asp-area="" asp-controller="Extra" asp-action="ChoooseTypeOfAccount">
+                            <img src="~/Images/Icons/icons8-male-user-64.png" width="45" />
+                        </a>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div>
+                            <div>
+                                <a class="nav-link text-dark">HELLO @User.Identity.Name</a>
+                            </div>
+                            <div>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Identiy" asp-action="Logout">Logout</a>
+                            </div>
+                        </div>
+                    }
 
                 </div>
+
             </div>
         </nav>
     </header>
@@ -48,9 +63,9 @@
             @RenderBody()
         </main>
     </div>
-    
+
     <footer class="border-top footer text-muted">
-        <div class="bg-info bg-gradient" >
+        <div class="bg-info bg-gradient">
 
             <a asp-area="" asp-controller="Home2" asp-action="basket">
                 <img width="30" src="~/Images/Icons/basket2-fill.svg" />

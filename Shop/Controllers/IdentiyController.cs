@@ -31,6 +31,7 @@ namespace Shop.Controllers
         public async Task<IActionResult> logAsAdmin(string username, string password, string returnUrl)
         {
             var AllAdmins = _content.Admins.ToList();
+            var AllUsers = _content.Users.ToList();
             foreach (var admin in AllAdmins)
             {
                 if (username == admin.Name && password == admin.PassWord)
@@ -48,11 +49,39 @@ namespace Shop.Controllers
                     return View("Secseeded");
 
                 }
+                foreach (var user in AllUsers)
+                {
+                    if (username == user.Name && password == user.PassWord)
+                    {
+                        var calaims = new List<Claim>();
+                        calaims.Add(new Claim("Id", user.Id.ToString()));
+                        calaims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+                        calaims.Add(new Claim(ClaimTypes.Name, user.Name));
+                        calaims.Add(new Claim(ClaimTypes.Email, user.Email));
+                        calaims.Add(new Claim(ClaimTypes.MobilePhone, user.PhoneNumber));
+                        calaims.Add(new Claim(ClaimTypes.UserData, user.SumOfAllPurchases.ToString()));
+                        calaims.Add(new Claim(ClaimTypes.Role, "User"));
+                        var claimsIdentity = new ClaimsIdentity(calaims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                        await HttpContext.SignInAsync(claimsPrincipal);
+                        return Redirect("/");
+                    }
+                }
             }
             return View("failed");
-
-            
         }
-        
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
+        }
+        [Authorize]
+        public IActionResult UserPage()
+        {
+            return View();
+        }
+
+
     }
 }

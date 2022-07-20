@@ -4,23 +4,33 @@
 @{
 }
 <div>
-    <div>
-        <img src="~/Images/Icons/new user icon.png" width="80" />
-        <label>Make a new acount</label>
-    </div>
+    <form asp-controller="UserModels" asp-action="Create">
+        <button type="submit">
+            <div>
+                <img src="~/Images/Icons/new user icon.png" width="80" />
+                <label>Make a new acount</label>
+            </div>
+        </button>
+    </form>
+
 </div>
 <br />
-<div>
-    <div>
-        <img src="~/Images/account icon.png" width="80" />
-        <label>Log in existing acount</label>
-    </div>
-</div>
+<form asp-controller="Identiy" asp-action="UserPage">
+    <button type="submit">
+        <div>
+            <div>
+                <img src="~/Images/account icon.png" width="80" />
+                <label>Log in existing acount</label>
+            </div>
+        </div>
+    </button>
+</form>
+
 <form asp-controller="Extra" asp-action="AdminPage">
     <div>
         <div>
             <button class="btn " type="submit"><img src="~/Images/Icons/admin Icon.png" width="80" /></button>
-         
+
             <label>log in as administrator</label>
         </div>
     </div>
