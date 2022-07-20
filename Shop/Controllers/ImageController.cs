@@ -35,5 +35,10 @@ namespace Shop.Controllers
             }
             return View("Index");
         }
+        [HttpGet("RegisterSeeceed")]
+        public IActionResult RegisterSeeceed()
+        {
+            return View();
+        }
     }
 }

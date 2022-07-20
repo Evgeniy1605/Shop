@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Shop.Controllers
         }
 
         // GET: UserModels
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
               return _context.Users != null ? 
@@ -28,6 +30,7 @@ namespace Shop.Controllers
         }
 
         // GET: UserModels/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Users == null)
@@ -62,12 +65,14 @@ namespace Shop.Controllers
             {
                 _context.Add(userModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("RegisterSeeceed");
+                //return RedirectToAction(nameof(Index));
             }
             return View(userModel);
         }
 
         // GET: UserModels/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Users == null)
@@ -88,6 +93,7 @@ namespace Shop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Surname,Email,PhoneNumber,SumOfAllPurchases,PassWord")] UserModel userModel)
         {
             if (id != userModel.Id)
@@ -119,6 +125,7 @@ namespace Shop.Controllers
         }
 
         // GET: UserModels/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Users == null)
@@ -139,6 +146,7 @@ namespace Shop.Controllers
         // POST: UserModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Users == null)
@@ -158,6 +166,12 @@ namespace Shop.Controllers
         private bool UserModelExists(int id)
         {
           return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpGet("RegisterSeeceed")]
+        public IActionResult RegisterSeeceed()
+        {
+            return View();
         }
     }
 }

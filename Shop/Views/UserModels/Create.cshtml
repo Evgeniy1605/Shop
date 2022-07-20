@@ -32,11 +32,7 @@
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SumOfAllPurchases" class="control-label"></label>
-                <input asp-for="SumOfAllPurchases" class="form-control" />
-                <span asp-validation-for="SumOfAllPurchases" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="PassWord" class="control-label"></label>
                 <input asp-for="PassWord" class="form-control" />
@@ -49,10 +45,17 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@if (User.Identity.AuthenticationType == "Admin")
+{
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+}
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
