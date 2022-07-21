@@ -61,6 +61,9 @@ namespace Shop.Controllers
                         calaims.Add(new Claim("Phone", user.PhoneNumber));
                         calaims.Add(new Claim("SumOfAllPurchases", user.SumOfAllPurchases.ToString()));
                         calaims.Add(new Claim(ClaimTypes.Role, "User"));
+                        calaims.Add(new Claim("Surename", user.Surname));
+                        calaims.Add(new Claim("Password", user.PassWord));
+
                         var claimsIdentity = new ClaimsIdentity(calaims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                         await HttpContext.SignInAsync(claimsPrincipal);

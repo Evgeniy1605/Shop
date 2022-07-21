@@ -193,6 +193,12 @@ namespace Shop.Controllers
         }
         public IActionResult SaveData(Order or)
         {
+            if (or.Email ==null)
+            {
+                or.Email = "_";
+            }
+            //
+            
             foreach (var item in BasketItem)
             {
                 LOfItem = "";
@@ -206,8 +212,26 @@ namespace Shop.Controllers
             /////
             FN = BasketItem.Sum(x => x.Price);
             or.Price = (int)FN;
-            or.PriceForPerchase = FN;
+            
+
+            //
+            double discount  = (FN / 100) * or.Discount;
+
+            //
+            or.PriceForPerchase = FN - discount;
             _content.Add(or);
+            //
+            if (User.Identity.IsAuthenticated)
+            {
+                var cl = User.Claims.ToList();
+                double NewSum = double.Parse(cl[5].ToString().Split(':')[1].Trim()) + or.PriceForPerchase;
+                UserModel user = new UserModel() { Id = int.Parse(cl[0].ToString().Split(':')[1]), SumOfAllPurchases = NewSum, Email = or.Email, Name = or.Name, PhoneNumber = or.PhoneNumber, Surname = or.Sername, PassWord = cl[8].ToString().Split(':')[1].Trim() };
+                _content.Update(user);
+            }
+            //
+            //
+            
+            
             _content.SaveChanges();
             return View("ThankYou");
         }
@@ -303,9 +327,24 @@ namespace Shop.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                Order order = new Order();
+                order.Name = User.Identity.Name;
+                var cl = User.Claims.ToList();
+                order.Sername = cl[7].ToString().Split(':')[1];
+                order.PhoneNumber = cl[4].ToString().Split(':')[1];
+                order.Email = cl[3].ToString().Split(':')[1];
+                
+                double SunOfAllPesheses = double.Parse(cl[5].ToString().Split(':')[1]);
+                if (SunOfAllPesheses > 50)
+                    order.Discount = 3;
+                else if (SunOfAllPesheses > 200)
+                    order.Discount = 10;
+                else if (SunOfAllPesheses > 1000)
+                    order.Discount = 20;
+                
 
 
-                return View();
+                return RedirectToAction("SaveData",order);
             }
             return RedirectToAction("InputPersonalData");
 

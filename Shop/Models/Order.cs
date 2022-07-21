@@ -12,5 +12,6 @@
         
         public double PriceForPerchase { get; set; }
         public int Discount { get; set; }
+        public string Email { get; set; }
     }
 }
