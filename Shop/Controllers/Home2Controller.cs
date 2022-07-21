@@ -206,6 +206,7 @@ namespace Shop.Controllers
             /////
             FN = BasketItem.Sum(x => x.Price);
             or.Price = (int)FN;
+            or.PriceForPerchase = FN;
             _content.Add(or);
             _content.SaveChanges();
             return View("ThankYou");

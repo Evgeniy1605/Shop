@@ -57,9 +57,9 @@ namespace Shop.Controllers
                         calaims.Add(new Claim("Id", user.Id.ToString()));
                         calaims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
                         calaims.Add(new Claim(ClaimTypes.Name, user.Name));
-                        calaims.Add(new Claim(ClaimTypes.Email, user.Email));
-                        calaims.Add(new Claim(ClaimTypes.MobilePhone, user.PhoneNumber));
-                        calaims.Add(new Claim(ClaimTypes.UserData, user.SumOfAllPurchases.ToString()));
+                        calaims.Add(new Claim("Email", user.Email));
+                        calaims.Add(new Claim("Phone", user.PhoneNumber));
+                        calaims.Add(new Claim("SumOfAllPurchases", user.SumOfAllPurchases.ToString()));
                         calaims.Add(new Claim(ClaimTypes.Role, "User"));
                         var claimsIdentity = new ClaimsIdentity(calaims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
