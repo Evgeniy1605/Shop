@@ -298,5 +298,15 @@ namespace Shop.Controllers
             return View("basket", BasketItem);
         }
 
+        public IActionResult SubmitPerchase()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            return RedirectToAction("InputPersonalData");
+
+        }
+
     }
 }
