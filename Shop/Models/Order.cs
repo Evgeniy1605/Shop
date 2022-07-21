@@ -9,6 +9,7 @@
         public string BasketList { get; set; }
         public int ChosenId { get; set; }
         public int Price { get; set; }
-
+        
+        public double PriceForPerchase { get; set; }
     }
 }

@@ -74,7 +74,7 @@ namespace Shop.Controllers
 
         // GET: Orders/Edit/5
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int?   id)
         {
             if (id == null || _context.Orders == null)
             {
