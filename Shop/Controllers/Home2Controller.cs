@@ -303,6 +303,8 @@ namespace Shop.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+
+
                 return View();
             }
             return RedirectToAction("InputPersonalData");

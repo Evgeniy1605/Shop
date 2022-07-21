@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
@@ -10,9 +11,10 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(OrderDbConenction))]
-    partial class OrderDbConenctionModelSnapshot : ModelSnapshot
+    [Migration("20220721145026_DeletedDiscount")]
+    partial class DeletedDiscount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,9 +90,6 @@ namespace Shop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ChosenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Discount")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

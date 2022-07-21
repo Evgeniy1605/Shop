@@ -11,5 +11,6 @@
         public int Price { get; set; }
         
         public double PriceForPerchase { get; set; }
+        public int Discount { get; set; }
     }
 }
