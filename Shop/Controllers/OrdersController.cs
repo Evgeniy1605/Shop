@@ -61,7 +61,7 @@ namespace Shop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("Id,Name,Sername,PhoneNumber,BasketList,ChosenId,Price")] Order order)
+        public async Task<IActionResult> Create([Bind("Id,Name,Sername,PhoneNumber,BasketList,ChosenId,Price,PriceForPerchase")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Shop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Sername,PhoneNumber,BasketList,ChosenId,Price")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Sername,PhoneNumber,BasketList,ChosenId,Price,PriceForPerchase")] Order order)
         {
             if (id != order.Id)
             {
