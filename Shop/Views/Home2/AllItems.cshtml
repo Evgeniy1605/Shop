@@ -1,10 +1,13 @@
 ﻿@model List<Shop.Models.PerchaseModel>
+
 <h1>Items</h1>
 <br />
 <div class="container mydiv">
     <div class="row">
         @foreach (var item in Model)
         {
+
+
             var random = new Random();
             int sold = random.Next(1, 100);
             int AvalibleNow = random.Next(1, 50);
@@ -15,8 +18,13 @@
                 <form asp-controller="Home2" asp-action="@item.Page">
                     <button type="submit" class="bg-white">
                         <div class="bbb_deals">
-                            <div class="ribbon ribbon-top-right"><span>@item.Discount% OFF</span></div>
-                            <div class="bbb_deals_title">Today's Best Offer</div>
+                            @if (item.Discount > 0)
+                            {
+                                <div class="ribbon ribbon-top-right"><span>@item.Discount% OFF</span></div>
+                                <div class="bbb_deals_title">Today's Best Offer</div>
+                            }
+
+                            
                             <div class="bbb_deals_slider_container">
                                 <div class=" bbb_deals_item">
                                     <div class="bbb_deals_image"><img src="@path" asp-append-version="true" alt=""></div>
@@ -24,7 +32,32 @@
                                         <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                             <div class="bbb_deals_item_category"><a href="#">@item.Type</a></div>
                                             <div>@item.Brend @item.Name</div>
-                                            <div class="bbb_deals_item_price_a ml-auto">₹40,000</div>
+                                            @if (item.Discount > 0)
+                                            {
+                                                double dis = (item.Price / 100) * item.Discount;
+                                                string[] ArrMinMaxPrice = item.MinMaxPrice.Split('-');
+                                                string PrivPrice ="";
+                                                double MinPrice;
+                                                double MaxPrice;
+
+                                                if (ArrMinMaxPrice.Count() == 1)
+                                                {
+                                                    PrivPrice = Math.Round(double.Parse(ArrMinMaxPrice[0]) + dis).ToString();
+                                                }
+                                                if (ArrMinMaxPrice.Count() == 2)
+                                                {
+                                                    double dis1 = (double.Parse(ArrMinMaxPrice[0]) / 100) * item.Discount;
+                                                    double dis2 = (double.Parse(ArrMinMaxPrice[1]) / 100) * item.Discount;
+
+                                                    MinPrice = Math.Round(double.Parse(ArrMinMaxPrice[0]) + dis1);
+                                                    MaxPrice = Math.Round(double.Parse(ArrMinMaxPrice[1]) + dis2);
+                                                    PrivPrice = MinPrice.ToString() + "-" + MaxPrice.ToString();
+
+                                                }
+
+                                                <div class="bbb_deals_item_price_a ml-auto">@PrivPrice</div>
+                                            }
+
                                         </div>
                                         <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                             <div class="bbb_deals_item_name">Current price  </div>
@@ -91,14 +124,14 @@
 {
     string path = "~/Images/" + item.Image + ".png";
 
-                <form asp-controller="Home2" asp-action="@item.Page" >
-                    <div>
-                        <img src="@path" width="80" asp-append-version = "true" />
+                        <form asp-controller="Home2" asp-action="@item.Page" >
+                            <div>
+                                <img src="@path" width="80" asp-append-version = "true" />
             @item.Brend @item.Name
-                        <button type="submit" class="btn btn-primary">Buy</button>
-                    </div>
-                    <br />
-                </form>
+                                <button type="submit" class="btn btn-primary">Buy</button>
+                            </div>
+                            <br />
+                        </form>
 
 }
 </ul>
