@@ -25,7 +25,7 @@ namespace Shop.Controllers
 
         public IActionResult Index()
         {
-
+            items = _content.AllPerchaseItems.ToList();
             return View();
         }
 
