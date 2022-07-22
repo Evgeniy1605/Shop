@@ -2,19 +2,19 @@
 <form asp-controller="Home2" asp-action="SaveData">
     <div>
         <label>Name: </label>
-        <input asp-for="Name" />
+        <input asp-for="Name" required />
     </div>
     <hr />
     <br />
     <div>
         <label>SureName: </label>
-        <input asp-for="Sername" />
+        <input asp-for="Sername" required />
     </div>
     <hr />
     <br />
      <div>
         <label>Phone Number: </label>
-        <input asp-for="PhoneNumber" />
+        <input asp-for="PhoneNumber" required />
     </div>
     <br />
     <button class="btn btn-primary" >Submit</button>
