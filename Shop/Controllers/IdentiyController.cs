@@ -85,6 +85,12 @@ namespace Shop.Controllers
             return View();
         }
 
+        [HttpGet("denied")]
+        [Authorize]
+        public IActionResult denied()
+        {
+            return View();
+        }
 
     }
 }

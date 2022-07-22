@@ -225,3 +225,16 @@ div {
         font-size: 20px
     }
 }
+.bodyd {
+    background-color: black;
+    color: white;
+}
+
+.h1d {
+    color: red;
+}
+
+.h6d {
+    color: red;
+    text-decoration: underline;
+}
