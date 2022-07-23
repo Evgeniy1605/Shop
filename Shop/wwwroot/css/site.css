@@ -173,14 +173,14 @@ div {
 }
 
 .bbb_deals_item_name {
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 100;
     color: #000000
 }
 
 .bbb_deals_item_price {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 100;
     color: #df3b3b
 }
 
@@ -375,4 +375,7 @@ a.fas {
         width: 100%;
         border: none;
     }
+}
+.bb-db1{
+    padding-top:45px
 }

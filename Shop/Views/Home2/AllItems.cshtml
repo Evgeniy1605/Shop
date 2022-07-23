@@ -20,23 +20,28 @@
                         <div class="bbb_deals">
                             @if (item.Discount > 0)
                             {
-                                <div class="ribbon ribbon-top-right"><span>@item.Discount% OFF</span></div>
-                                <div class="bbb_deals_title">Today's Best Offer</div>
+
+                                <div class="ribbon ribbon-top-right "><span>@item.Discount% OFF</span></div>
+
+                                <div class="bbb_deals_title bb-db1 ">Today's Best Offer</div>
                             }
 
-                            
+
                             <div class="bbb_deals_slider_container">
-                                <div class=" bbb_deals_item">
-                                    <div class="bbb_deals_image"><img src="@path" asp-append-version="true" alt=""></div>
+                                <div class="bbb_deals_item">
+                                    <div class="bbb_deals_image bb-db1"><img src="@path" asp-append-version="true" alt=""></div>
+                                    <div class="bbb_deals_item_category"><a href="#">@item.Type</a></div>
+                                    <div>@item.Brend @item.Name</div>
                                     <div class="bbb_deals_content">
                                         <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
-                                            <div class="bbb_deals_item_category"><a href="#">@item.Type</a></div>
-                                            <div>@item.Brend @item.Name</div>
+
+
                                             @if (item.Discount > 0)
                                             {
+                                                <div class="bbb_deals_item_category"><a href="#">Old Price</a></div>
                                                 double dis = (item.Price / 100) * item.Discount;
                                                 string[] ArrMinMaxPrice = item.MinMaxPrice.Split('-');
-                                                string PrivPrice ="";
+                                                string PrivPrice = "";
                                                 double MinPrice;
                                                 double MaxPrice;
 
@@ -55,13 +60,27 @@
 
                                                 }
 
-                                                <div class="bbb_deals_item_price_a ml-auto">@PrivPrice</div>
+                                                <div class=" ml-auto">   @PrivPrice $</div>
                                             }
 
-                                        </div>
+                                        </div>  
+                                        <br />
                                         <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                             <div class="bbb_deals_item_name">Current price  </div>
-                                            <div class="bbb_deals_item_price ml-auto"> @item.MinMaxPrice $</div>
+                                            @if (item.Discount > 0)
+                                            {
+                                                <div class="bbb_deals_item_price ml-auto">
+                                                    <div>   @item.MinMaxPrice $ </div>
+                                                </div>
+                                            }
+                                            @if (item.Discount == 0)
+                                            {
+                                                <div class="ml-auto">
+                                                    <div>   @item.MinMaxPrice $ </div>
+                                                </div>
+                                            }
+                                            
+                                            
                                         </div>
                                         <div class="available">
                                             <div class="available_line d-flex flex-row justify-content-start">
