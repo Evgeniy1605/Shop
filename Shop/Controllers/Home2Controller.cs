@@ -202,7 +202,7 @@ namespace Shop.Controllers
             foreach (var item in BasketItem)
             {
                 LOfItem = "";
-                LOfItem += item.Brend + " " + item.Name + "Colour: " + item.Colour + "Size: " + item.Size + "|";
+                LOfItem += item.Brend + " " + item.Name + "Colour: " + item.Colour + "Size: " + item.Size + "Model:"+ item.Property + "|";
                 or.BasketList += LOfItem;
             }
 
@@ -233,6 +233,7 @@ namespace Shop.Controllers
             
             
             _content.SaveChanges();
+            BasketItem.RemoveAt(0);
             return View("ThankYou");
         }
         public IActionResult Try()
@@ -369,6 +370,36 @@ namespace Shop.Controllers
             return View(result);
             
         }
+        public PerchaseModel tiro = new PerchaseModel();
+        public IActionResult Tiro()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 16).ToList();
+            tiro = i[0];
+            return View(tiro);
+        }
+        public IActionResult BuyTiro(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 16).ToList();
+            tiro = i[0];
+            switch (model.Property)
+            {
+                case "GONTS 762L":
+                    tiro.Price = 250;
+                    break;
+                case "GONTS-762M":
+                    tiro.Price = 300;
+                    break;
+                case "GONTS-792ML":
+                    tiro.Price = 320;
+                    break;
+            }
 
+            var basketItem = new BasketModel { Name = tiro.Name, Brend = tiro.Brend, Id = tiro.Id, Colour = tiro.Colour, Discount = tiro.Discount, Price = tiro.Price, Size = tiro.Size, Image = tiro.Image, Page = tiro.Page, Type = tiro.Type, Property = model.Property };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
     }
 }
