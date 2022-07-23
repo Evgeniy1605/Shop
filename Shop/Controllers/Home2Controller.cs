@@ -233,7 +233,7 @@ namespace Shop.Controllers
             
             
             _content.SaveChanges();
-            BasketItem.RemoveAt(0);
+            BasketItem.RemoveRange(0,BasketItem.Count);
             return View("ThankYou");
         }
         public IActionResult Try()
@@ -336,13 +336,25 @@ namespace Shop.Controllers
                 order.Email = cl[3].ToString().Split(':')[1];
                 
                 double SunOfAllPesheses = double.Parse(cl[5].ToString().Split(':')[1]);
-                if (SunOfAllPesheses > 50)
+                if (SunOfAllPesheses < 10)
+                    order.Discount = 0;
+
+                else if (SunOfAllPesheses > 50 && SunOfAllPesheses < 200)
+                {
                     order.Discount = 3;
-                else if (SunOfAllPesheses > 200)
+                }
+
+                else if (SunOfAllPesheses > 200 && SunOfAllPesheses < 1000)
+                {
                     order.Discount = 10;
+                }
+
+
                 else if (SunOfAllPesheses > 1000)
+                {
                     order.Discount = 20;
-                
+                }
+
 
 
                 return RedirectToAction("SaveData",order);
@@ -385,12 +397,15 @@ namespace Shop.Controllers
             {
                 case "GONTS 762L":
                     tiro.Price = 250;
+                    tiro.Size = "76";
                     break;
                 case "GONTS-762M":
                     tiro.Price = 300;
+                    tiro.Size = "76";
                     break;
                 case "GONTS-792ML":
                     tiro.Price = 320;
+                    tiro.Size = "79";
                     break;
             }
 

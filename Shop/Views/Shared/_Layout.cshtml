@@ -60,8 +60,19 @@
                                     <div>
                                         <a class="nav-link text-dark">HELLO @User.Identity.Name</a>
                                     </div>
+                                    
                                     <div>
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Identiy" asp-action="Logout">Logout</a>
+                                        @if (User.IsInRole("User"))
+                                        {
+                                            
+                                            <a class="nav-link text-dark try" asp-controller="Identiy" asp-action="UserPage" >User Page</a>
+                                        }
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a class="nav-link text-dark try" asp-controller="Extra" asp-action="AdminPage" >Admin Page</a>
+                                        }
+
+                                        <a class="nav-link text-dark try" asp-area="" asp-controller="Identiy" asp-action="Logout">Logout</a>
                                     </div>
                                 </div>
                             }

@@ -2,5 +2,76 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var cl = User.Claims.ToList();
+    string Name = User.Identity.Name;
+    string Surename = cl[7].ToString().Split(':')[1];
+    string Phone = cl[4].ToString().Split(':')[1];
+    string Email = cl[3].ToString().Split(':')[1];
+    int Discount = 0;
+    double SunOfAllPesheses = double.Parse(cl[5].ToString().Split(':')[1]);
+
+    if (SunOfAllPesheses < 10)
+    {
+        Discount = 0;
+    }
+
+
+    else if (SunOfAllPesheses > 50 && SunOfAllPesheses < 200)
+    {
+        Discount = 3;
+    }
+
+    else if (SunOfAllPesheses > 200 && SunOfAllPesheses < 1000)
+    {
+        Discount = 10;
+    }
+
+
+    else if (SunOfAllPesheses > 1000)
+    {
+        Discount = 20; 
+    }
+
 }
 <h1>UserPage</h1>
+<div class="h-screen bg-gray-300">
+    <div class="container flex justify-center py-20">
+
+        <div class="p-3 bg-white rounded-xl max-w-lg hover:shadow">
+
+            <div class="flex justify-between w-full">
+
+                <img src="~/Images/Icons/icons8-male-user-64.png" width="150" class="rounded-lg">
+
+                <div class="ml-2">
+
+                    <div class="p-3">
+
+                        <h3 class="text-2xl">@Name @Surename</h3>
+                        <span>Customer</span>
+                    </div>
+
+                    <div class="flex justify-between items-center p-3 bg-gray-200 rounded-lg">
+
+                        <div class="mr-3">
+                            <span class="text-gray-400 block">Phone number</span>
+                            <span class="font-bold text-black text-xl">@Phone</span>
+                        </div>
+
+                        <div class="mr-3">
+                            <span class="text-gray-400 block">Email</span>
+                            <span class="font-bold text-black text-xl">@Email</span>
+                        </div>
+
+                        <div>
+                            <span class="text-gray-400 block">Your Discount</span>
+                            <span class="font-bold text-black text-xl">@Discount %</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
