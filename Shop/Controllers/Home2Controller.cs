@@ -349,6 +349,16 @@ namespace Shop.Controllers
             return RedirectToAction("InputPersonalData");
 
         }
+        [HttpPost("FindItem")]
+        public IActionResult FindItem2(string Find)
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            string Find2 = Find.ToString();
+            result = items.Where(x => x.Name.Contains(Find2)).ToList();
+            return View(result);
+            
+        }
 
     }
 }
