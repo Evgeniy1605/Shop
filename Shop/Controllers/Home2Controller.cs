@@ -359,6 +359,16 @@ namespace Shop.Controllers
             return View(result);
             
         }
+        
+        public IActionResult Voblers()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+           
+            result = items.Where(x => x.Type == "Vobler").ToList();
+            return View(result);
+            
+        }
 
     }
 }
