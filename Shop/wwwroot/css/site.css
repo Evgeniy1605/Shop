@@ -17,9 +17,9 @@ body {
   margin-bottom: 60px;
 }
 
-.try:hover{
-    background-color:blue;
-    color : white;
+.try:hover {
+    background-color: #67971f;
+    color: lightgray;
 }
 .mydiv {
     margin-top: 50px;
