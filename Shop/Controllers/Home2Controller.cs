@@ -463,5 +463,41 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
+        //
+        public PerchaseModel icecube = new PerchaseModel();
+        public IActionResult IceCube()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 18).ToList();
+            icecube = i[0];
+            return View(icecube);
+        }
+        public IActionResult BuyIceCube(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 18).ToList();
+            icecube = i[0];
+            switch (model.Property)
+            {
+                case "IC-69F-Sis":
+                    icecube.Price = 300;
+                    icecube.Size = "69";
+                    break;
+                case "IC-69P-Sis":
+                    icecube.Price = 320;
+                    icecube.Size = "69";
+                    break;
+                case "IC-90TG-Sis":
+                    icecube.Price = 380;
+                    icecube.Size = "9";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = icecube.Name, Brend = icecube.Brend, Id = icecube.Id, Colour = icecube.Colour, Discount = icecube.Discount, Price = icecube.Price, Size = icecube.Size, Image = icecube.Image, Page = icecube.Page, Type = icecube.Type, Property = model.Property, MinMaxPrice = icecube.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
     }
 }

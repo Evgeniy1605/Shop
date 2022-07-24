@@ -1,0 +1,33 @@
+﻿@model PerchaseModel
+@{
+    string path = "~/Images/" + Model.Image + ".png";
+    <br />
+    <p1 class="align-content-center mb-5 w-100">
+        <img src="@path" asp-append-version="true" class="align-content-center w-5" width="500" />
+
+    </p1>
+}
+<form asp-area="" asp-controller="Home2" asp-action="BuyIceCube">
+    <p>Chose a model:</p>
+    <div>
+        <label>IC-69F-Sis (0,1-3,5)</label>
+        <input asp-for="Property" type="radio" value="IC-69F-Sis"  checked ="checked" id="1"  /> 
+        <img src="~/Images/IceCubeR.png" asp-append-version="true" width="100" />300$
+    </div>
+    <br />
+    <div>
+        <label>IC-69P-Sis (0,1-7)</label>
+        <input asp-for="Property" type="radio" value="IC-69P-Sis"  id="1" /> 
+        <img src="~/Images/IceCubeR.png" asp-append-version="true" width="100" />320$
+    </div>
+    <br />
+    <div>
+        <label>IC-90TG-Sis (0,8-21)</label>
+        <input asp-for="Property" type="radio" value="IC-90TG-Sis" id="1"  /> 
+        <img src="~/Images/IceCubeR.png" asp-append-version="true" width="100" />380$
+    </div>
+    <br />
+    <br />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+    
+</form>

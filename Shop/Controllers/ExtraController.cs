@@ -90,7 +90,26 @@ namespace Shop.Controllers
         {
             return View("AddNewPerchse");
         }
-        
-        
+
+
+        public List<PerchaseModel> items = new List<PerchaseModel>();
+        public IActionResult GraphiteleaderRods()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+
+            result = items.Where(x => x.Brend == "Graphiteleader").ToList();
+            return View(result);
+        }
+
+        public IActionResult AllRods()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+
+            result = items.Where(x => x.Type == "Rod").ToList();
+            return View(result);
+        }
+
     }
 }
