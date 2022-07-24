@@ -1,0 +1,52 @@
+﻿@model PerchaseModel
+@{
+    string path = "~/Images/" + Model.Image + ".png";
+    <p1 class="align-content-center mb-5 w-100 bb-db1">
+        <img src="@path" asp-append-version="true" class="align-content-center w-5" width="500" />
+
+    </p1>
+}
+<br />
+<form asp-area="" asp-controller="Home2" asp-action="BuyVivoNuovo" class="bb-db1">
+    <p>Chose a model:</p>
+    <br />
+    <div class="bb-db1">
+        <label>GNOVS-742L (3-15)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-742L"  checked ="checked" id="1"  /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />650$
+    </div>
+    <br />
+    <div>
+        <label>GNOVS-762ML (4-18)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-762ML"  id="1" /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />660$
+    </div>
+    <br />
+    <div>
+        <label>GNOVS-762M (6-25)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-762M" id="1"  /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />680$
+    </div>
+    <br />
+    <div>
+        <label>GNOVS-762MH (10-35)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-762MH" id="1"  /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />700$
+    </div>
+    <br />
+    <div>
+        <label>GNOVS-842M (7-28)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-842M" id="1"  /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />720$
+    </div>
+    <div>
+        <label>GNOVS-842H (20-70)</label>
+        <input asp-for="Property" type="radio" value="GNOVS-842H" id="1"  /> 
+        <img src="~/Images/Vivo/Vivo Nuovo.png" width="150" />740$
+    </div>
+    
+    <br />
+    <br />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+    
+</form>

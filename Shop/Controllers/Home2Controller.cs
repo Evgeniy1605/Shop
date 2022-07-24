@@ -202,7 +202,7 @@ namespace Shop.Controllers
             foreach (var item in BasketItem)
             {
                 LOfItem = "";
-                LOfItem += item.Brend + " " + item.Name + "Colour: " + item.Colour + "Size: " + item.Size + "Model:"+ item.Property + "|";
+                LOfItem += item.Brend + " " + item.Name + "Colour: " + item.Colour + "Size: " + item.Size + "  Model:"+ item.Property + "|";
                 or.BasketList += LOfItem;
             }
 
@@ -410,6 +410,53 @@ namespace Shop.Controllers
             }
 
             var basketItem = new BasketModel { Name = tiro.Name, Brend = tiro.Brend, Id = tiro.Id, Colour = tiro.Colour, Discount = tiro.Discount, Price = tiro.Price, Size = tiro.Size, Image = tiro.Image, Page = tiro.Page, Type = tiro.Type, Property = model.Property };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
+        public PerchaseModel vivo_nuovo  = new PerchaseModel();
+        public IActionResult VivoNuovo()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 17).ToList();
+            vivo_nuovo = i[0];
+            return View(vivo_nuovo);
+        }
+        public IActionResult BuyVivoNuovo(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 17).ToList();
+            vivo_nuovo = i[0];
+            switch (model.Property)
+            {
+                case "GNOVS-742L":
+                    vivo_nuovo.Price = 650;
+                    vivo_nuovo.Size = "74";
+                    break;
+                case "GNOVS-762ML":
+                    vivo_nuovo.Price = 660;
+                    vivo_nuovo.Size = "76";
+                    break;
+                case "GNOVS-762M":
+                    vivo_nuovo.Price = 680;
+                    vivo_nuovo.Size = "76";
+                    break;
+                case "GNOVS-762MH":
+                    vivo_nuovo.Price = 700;
+                    vivo_nuovo.Size = "76";
+                    break;
+                case "GNOVS-842M":
+                    vivo_nuovo.Price = 720;
+                    vivo_nuovo.Size = "84";
+                    break;
+                case "GNOVS-842H":
+                    vivo_nuovo.Price = 740;
+                    vivo_nuovo.Size = "84";
+                    break;
+
+            }
+            var basketItem = new BasketModel { Brend = vivo_nuovo.Brend, Colour = vivo_nuovo.Colour, Discount = vivo_nuovo.Discount, Id = vivo_nuovo.Id, Property = model.Property, Image = vivo_nuovo.Image, MinMaxPrice = vivo_nuovo.MinMaxPrice, Name = vivo_nuovo.Name, Page = vivo_nuovo.Page, Price = vivo_nuovo.Price, Size = vivo_nuovo.Size, Type = vivo_nuovo.Type };
             BasketItem.Add(basketItem);
             FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
