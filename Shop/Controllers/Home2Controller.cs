@@ -741,5 +741,36 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
+        // Jackall Rerange
+        public PerchaseModel rerange = new PerchaseModel();
+        public IActionResult Rerange()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 26).ToList();
+            rerange = i[0];
+            return View(rerange);
+        }
+        public IActionResult BuyRerange(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 26).ToList();
+            rerange = i[0];
+            switch (model.Size)
+            {
+                case "100":
+                    rerange.Price = 30;
+
+                    break;
+                case "130":
+                    rerange.Price = 35;
+                    break;
+                
+            }
+
+            var basketItem = new BasketModel { Name = rerange.Name, Brend = rerange.Brend, Id = rerange.Id, Colour = model.Colour, Discount = rerange.Discount, Price = rerange.Price, Size = model.Size, Image = rerange.Image, Page = rerange.Page, Type = rerange.Type, Property = rerange.Property, MinMaxPrice = rerange.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
     }
 }
