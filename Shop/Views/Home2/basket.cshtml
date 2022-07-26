@@ -1,13 +1,17 @@
 ﻿@model List<Shop.Models.BasketModel>
-<h1 class="text-center">Your Basccket</h1>
+<h1 class="text-center bb-db1">Your Basccket</h1>
 <ul>
 
     @foreach (var item in Model)
     {
-        <li>@item.Brend 
+        string path = "~/Images/" + item.Image + ".png";
+        <li>
+            
+            @item.Brend 
             @item.Name
             @item.Price $
         </li>
+        <br />
     }
 </ul>
 @{
@@ -16,6 +20,7 @@
 <h1>@ViewData["Tittle"] @ViewData["Message"]</h1>
 <h2></h2>
 <form asp-controller="Home2" asp-action="SubmitPerchase" >
+    <div class="bb-db1" ></div>
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 

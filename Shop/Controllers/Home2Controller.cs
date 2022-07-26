@@ -463,7 +463,7 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
-        //
+        
         public PerchaseModel icecube = new PerchaseModel();
         public IActionResult IceCube()
         {
@@ -498,6 +498,248 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
+        
+        public PerchaseModel sram = new PerchaseModel();
+        public IActionResult Sram()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 19).ToList();
+            sram = i[0];
+            return View(sram);
+        }
+        public IActionResult BuySram(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 19).ToList();
+            sram = i[0];
+            switch (model.Property)
+            {
+                case "UTR-68-TOR":
+                    sram.Price = 280;
+                    sram.Size = "68";
+                    break;
+                case "EXR-73S-Sis":
+                    sram.Price = 300;
+                    sram.Size = "73";
+                    break;
+                case "TCR-84S":
+                    sram.Price = 350;
+                    sram.Size = "84";
+                    break;
+            }
 
+            var basketItem = new BasketModel { Name = sram.Name, Brend = sram.Brend, Id = sram.Id, Colour = sram.Colour, Discount = sram.Discount, Price = sram.Price, Size = sram.Size, Image = sram.Image, Page = sram.Page, Type = sram.Type, Property = model.Property, MinMaxPrice = sram.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        
+        public PerchaseModel inbite = new PerchaseModel();
+        public IActionResult Inbite()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 20).ToList();
+            inbite = i[0];
+            return View(inbite);
+        }
+        public IActionResult BuyInbite(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 20).ToList();
+            inbite = i[0];
+            switch (model.Property)
+            {
+                case "IB710-TB":
+                    inbite.Price = 380;
+                    inbite.Size = "71";
+                    break;
+                case "IB73-CS":
+                    inbite.Price = 350;
+                    inbite.Size = "73";
+                    break;
+                ;
+            }
+
+            var basketItem = new BasketModel { Name = inbite.Name, Brend = inbite.Brend, Id = inbite.Id, Colour = inbite.Colour, Discount = inbite.Discount, Price = inbite.Price, Size = inbite.Size, Image = inbite.Image, Page = inbite.Page, Type = inbite.Type, Property = model.Property, MinMaxPrice = inbite.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Finezza
+
+        public PerchaseModel finezza = new PerchaseModel();
+        public IActionResult Finezza()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 21).ToList();
+            finezza = i[0];
+            return View(finezza);
+        }
+        public IActionResult BuyFinezza(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 21).ToList();
+            finezza = i[0];
+            switch (model.Property)
+            {
+                case "GLFS-752L-T":
+                    finezza.Price = 390;
+                    finezza.Size = "75";
+                    break;
+                case "GLFS-7112ML-T":
+                    finezza.Price = 450;
+                    finezza.Size = "81";
+                    break;
+                case "742ML-T":
+                    finezza.Price = 485;
+                    finezza.Size = "74";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = finezza.Name, Brend = finezza.Brend, Id = finezza.Id, Colour = finezza.Colour, Discount = finezza.Discount, Price = finezza.Price, Size = finezza.Size, Image = finezza.Image, Page = finezza.Page, Type = finezza.Type, Property = model.Property, MinMaxPrice = finezza.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Calamaretti 
+        public PerchaseModel calamaretti = new PerchaseModel();
+        public IActionResult Calamaretti()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 22).ToList();
+            calamaretti = i[0];
+            return View(calamaretti);
+        }
+        public IActionResult BuyCalamaretti(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 22).ToList();
+            calamaretti = i[0];
+            switch (model.Property)
+            {
+                case "20GCALS-7102M":
+                    calamaretti.Price = 480;
+                    calamaretti.Size = "8";
+                    break;
+                case "GNCPRS-802ML-S":
+                    calamaretti.Price = 650;
+                    calamaretti.Size = "8";
+                    break;
+                case "GNCPRS-8102MH":
+                    calamaretti.Price = 680;
+                    calamaretti.Size = "9";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = calamaretti.Name, Brend = calamaretti.Brend, Id = calamaretti.Id, Colour = calamaretti.Colour, Discount = calamaretti.Discount, Price = calamaretti.Price, Size = calamaretti.Size, Image = calamaretti.Image, Page = calamaretti.Page, Type = calamaretti.Type, Property = model.Property, MinMaxPrice = calamaretti.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Silverado
+        public PerchaseModel silverado = new PerchaseModel();
+        public IActionResult Silverado()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 23).ToList();
+            silverado = i[0];
+            return View(silverado);
+        }
+        public IActionResult BuySilverado(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 23).ToList();
+            silverado = i[0];
+            switch (model.Property)
+            {
+                case "GSIS-742LML-HS":
+                    silverado.Price = 500;
+                    silverado.Size = "74";
+                    break;
+                case "GSIS-742ML-LE":
+                    silverado.Price = 550;
+                    silverado.Size = "76";
+                    break;
+                case "20GSILPS-762ML":
+                    silverado.Price = 560;
+                    silverado.Size = "76";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = silverado.Name, Brend = silverado.Brend, Id = silverado.Id, Colour = silverado.Colour, Discount = silverado.Discount, Price = silverado.Price, Size = silverado.Size, Image = silverado.Image, Page = silverado.Page, Type = silverado.Type, Property = model.Property, MinMaxPrice = silverado.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Poseidon 
+        public PerchaseModel poseidon = new PerchaseModel();
+        public IActionResult Poseidon()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 24).ToList();
+            poseidon = i[0];
+            return View(poseidon);
+        }
+        public IActionResult BuyPoseidon(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 24).ToList();
+            poseidon = i[0];
+            switch (model.Property)
+            {
+                case "PSSS-67S":
+                    poseidon.Price = 800;
+                    poseidon.Size = "67";
+                    break;
+                case "PSSS-73T":
+                    poseidon.Price = 900;
+                    poseidon.Size = "73";
+                    break;
+                case "PSSS-78T":
+                    poseidon.Price = 960;
+                    poseidon.Size = "78";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = poseidon.Name, Brend = poseidon.Brend, Id = poseidon.Id, Colour = poseidon.Colour, Discount = poseidon.Discount, Price = poseidon.Price, Size = poseidon.Size, Image = poseidon.Image, Page = poseidon.Page, Type = poseidon.Type, Property = model.Property, MinMaxPrice = poseidon.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        // Squidlaw 
+        public PerchaseModel squidlaw = new PerchaseModel();
+        public IActionResult Squidlaw()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 25).ToList();
+            squidlaw = i[0];
+            return View(squidlaw);
+        }
+        public IActionResult BuySquidlaw(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 25).ToList();
+            squidlaw = i[0];
+            switch (model.Property)
+            {
+                case "NIMS-73M":
+                    squidlaw.Price = 900;
+                    squidlaw.Size = "73";
+                    break;
+                case "NIMS-86M":
+                    squidlaw.Price = 950;
+                    squidlaw.Size = "86";
+                    break;
+                case "NIMS-90L":
+                    squidlaw.Price = 980;
+                    squidlaw.Size = "9";
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = squidlaw.Name, Brend = squidlaw.Brend, Id = squidlaw.Id, Colour = squidlaw.Colour, Discount = squidlaw.Discount, Price = squidlaw.Price, Size = squidlaw.Size, Image = squidlaw.Image, Page = squidlaw.Page, Type = squidlaw.Type, Property = model.Property, MinMaxPrice = squidlaw.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
     }
 }

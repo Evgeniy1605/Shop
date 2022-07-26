@@ -1,0 +1,33 @@
+﻿@model PerchaseModel
+@{
+    string path = "~/Images/" + Model.Image + ".png";
+    <br />
+    <p1 class="align-content-center mb-5 w-100 bb-db1">
+        <img src="@path" asp-append-version="true" class="align-content-center w-5" width="500" />
+
+    </p1>
+}
+<form asp-area="" asp-controller="Home2" asp-action="BuySram">
+    <p class="bb-db1">Chose a model:</p>
+    <div>
+        <label>UTR-68-TOR (0,2-3)</label>
+        <input asp-for="Property" type="radio" value="UTR-68-TOR"  checked ="checked" id="1"  /> 
+        <img src="~/Images/Sram2.png" asp-append-version="true" width="100" />280$
+    </div>
+    <br />
+    <div>
+        <label>EXR-73S-Sis (0,8-7)</label>
+        <input asp-for="Property" type="radio" value="EXR-73S-Sis"  id="1" /> 
+        <img src="~/Images/Sram2.png" asp-append-version="true" width="100" />300$
+    </div>
+    <br />
+    <div>
+        <label>TCR-84S  (1-12)</label>
+        <input asp-for="Property" type="radio" value="TCR-84S" id="1"  /> 
+        <img src="~/Images/Sram2.png" asp-append-version="true" width="100" />350$
+    </div>
+    <br />
+    <br />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+    
+</form>
