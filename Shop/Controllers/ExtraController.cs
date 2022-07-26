@@ -110,6 +110,14 @@ namespace Shop.Controllers
             result = items.Where(x => x.Type == "Rod").ToList();
             return View(result);
         }
+        //Today's best offers
+        public IActionResult TodaysBestOffers()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Discount > 0).ToList();
+            return View(result);
+        }
 
     }
 }
