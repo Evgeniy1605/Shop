@@ -755,7 +755,7 @@ namespace Shop.Controllers
             rerange = i[0];
             switch (model.Size)
             {
-                case "100":
+                case "110":
                     rerange.Price = 30;
 
                     break;

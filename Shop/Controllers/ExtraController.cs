@@ -152,5 +152,13 @@ namespace Shop.Controllers
             result = items.Where(x => x.Brend == "Zipbaits").ToList();
             return View(result);
         }
+        // JACKALL 
+        public IActionResult JACKALL()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "JACKALL").ToList();
+            return View(result);
+        }
     }
 }
