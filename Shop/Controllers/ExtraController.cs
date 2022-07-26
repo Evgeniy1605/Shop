@@ -118,6 +118,39 @@ namespace Shop.Controllers
             result = items.Where(x => x.Discount > 0).ToList();
             return View(result);
         }
+        //TictRods
+        public IActionResult TictRods()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Tict").ToList();
+            return View(result);
+        }
 
+        // Ever Green Rods
+        public IActionResult EverGreenRods()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Ever Green").ToList();
+            return View(result);
+        }
+        // Strike pro 
+        public IActionResult StrikePro()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Strike pro").ToList();
+            return View(result);
+        }
+
+        // Zipbaits
+        public IActionResult Zipbaits()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Zipbaits").ToList();
+            return View(result);
+        }
     }
 }
