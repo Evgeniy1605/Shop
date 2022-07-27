@@ -160,5 +160,29 @@ namespace Shop.Controllers
             result = items.Where(x => x.Brend == "JACKALL").ToList();
             return View(result);
         }
+        //wheel
+        public IActionResult Wheels()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Type == "Wheel").ToList();
+            return View("FoundProducts",result);
+        }
+        //daiwa
+        public IActionResult Daiwa()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Daiwa").ToList();
+            return View("FoundProducts", result);
+        }
+        // Shimano
+        public IActionResult Shimano()
+        {
+            items = _content.AllPerchaseItems.ToList();
+            var result = new List<PerchaseModel>();
+            result = items.Where(x => x.Brend == "Shimano").ToList();
+            return View("FoundProducts", result);
+        }
     }
 }
