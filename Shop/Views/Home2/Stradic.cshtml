@@ -1,0 +1,39 @@
+﻿@model PerchaseModel
+@{
+    string path = "~/Images/" + Model.Image + ".png";
+    //string path2 ="~/Images/" + Model.Image + "2" + ".png";
+    <br />
+    <p1 class="align-content-center mb-5 w-100 bb-db1">
+        <img src="@path" asp-append-version="true" class="align-content-center w-5" width="500" />
+
+    </p1>
+}
+<form asp-area="" asp-controller="Home2" asp-action="BuyStradic">
+    <p class="bb-db1">Chose a size:</p>
+    <div>
+        <label>1000</label>
+        <input asp-for="Size" type="radio" value="1000"  checked ="checked" id="1"  /> 
+        <img src="@path" asp-append-version="true" width="100" />200$
+    </div>
+    <br />
+    <div>
+        <label>2500</label>
+        <input asp-for="Size" type="radio" value="2500"  id="1" /> 
+        <img src="@path" asp-append-version="true" width="100" />250$
+    </div>
+    <br />
+    <div>
+        <label>c3000</label>
+        <input asp-for="Size" type="radio" value="c3000"  id="1" /> 
+        <img src="@path" asp-append-version="true" width="100" />250$
+    </div>
+    <div>
+        <label>4000</label>
+        <input asp-for="Size" type="radio" value="4000"  id="1" /> 
+        <img src="@path" asp-append-version="true" width="100" />280$
+    </div>
+    <br />
+    <br />
+    <button class=" btn btn-primary" type="submit">Buy</button>
+    
+</form>

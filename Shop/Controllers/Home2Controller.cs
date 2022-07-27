@@ -772,5 +772,260 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
+        // Shimano Stradic 
+        public PerchaseModel stradic = new PerchaseModel();
+        public IActionResult Stradic()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 27).ToList();
+            stradic = i[0];
+            return View(stradic);
+        }
+        public IActionResult BuyStradic(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 27).ToList();
+            stradic = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    stradic.Price = 200;
+
+                    break;
+                case "2500":
+                    stradic.Price = 250;
+                    break;
+                case "c3000":
+                    stradic.Price = 250;
+                    break;
+                case "4000":
+                    stradic.Price = 280;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = stradic.Name, Brend = stradic.Brend, Id = stradic.Id, Colour = stradic.Colour, Discount = stradic.Discount, Price = stradic.Price, Size = model.Size, Image = stradic.Image, Page = stradic.Page, Type = stradic.Type, Property = stradic.Property, MinMaxPrice = stradic.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Shimano Ultegra
+        public PerchaseModel ultegra = new PerchaseModel();
+        public IActionResult Ultegra()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 28).ToList();
+            ultegra = i[0];
+            return View(ultegra);
+        }
+        public IActionResult BuyUltegra(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 28).ToList();
+            ultegra = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    ultegra.Price = 140;
+
+                    break;
+                case "2500":
+                    ultegra.Price = 200;
+                    break;
+                case "c3000":
+                    ultegra.Price = 200;
+                    break;
+                case "4000":
+                    ultegra.Price = 220;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = ultegra.Name, Brend = ultegra.Brend, Id = ultegra.Id, Colour = ultegra.Colour, Discount = ultegra.Discount, Price = ultegra.Price, Size = model.Size, Image = ultegra.Image, Page = ultegra.Page, Type = ultegra.Type, Property = ultegra.Property, MinMaxPrice = ultegra.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Shimano Twin Power 
+        public PerchaseModel twinpower = new PerchaseModel();
+        public IActionResult TwinPower()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 29).ToList();
+            twinpower = i[0];
+            return View(twinpower);
+        }
+        public IActionResult BuyTwinPower(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 29).ToList();
+            twinpower = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    twinpower.Price = 620;
+
+                    break;
+                case "2500":
+                    twinpower.Price = 700;
+                    break;
+                case "c3000":
+                    twinpower.Price = 700;
+                    break;
+                case "4000":
+                    twinpower.Price = 750;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = twinpower.Name, Brend = twinpower.Brend, Id = twinpower.Id, Colour = twinpower.Colour, Discount = twinpower.Discount, Price = twinpower.Price, Size = model.Size, Image = twinpower.Image, Page = twinpower.Page, Type = twinpower.Type, Property = twinpower.Property, MinMaxPrice = twinpower.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Shimano Stella
+        public PerchaseModel stella = new PerchaseModel();
+        public IActionResult Stella()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 30).ToList();
+            stella = i[0];
+            return View(stella);
+        }
+        public IActionResult BuyStella(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 30).ToList();
+            stella = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    stella.Price = 980;
+
+                    break;
+                case "2500":
+                    stella.Price = 1000;
+                    break;
+                case "c3000":
+                    stella.Price = 1000;
+                    break;
+                case "4000":
+                    stella.Price = 1050;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = stella.Name, Brend = stella.Brend, Id = stella.Id, Colour = stella.Colour, Discount = stella.Discount, Price = stella.Price, Size = model.Size, Image = stella.Image, Page = stella.Page, Type = stella.Type, Property = stella.Property, MinMaxPrice = stella.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+        //Daiwa Caldia LT
+        public PerchaseModel caldia = new PerchaseModel();
+        public IActionResult Caldia()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 31).ToList();
+            caldia = i[0];
+            return View(caldia);
+        }
+        public IActionResult BuyCaldia(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 31).ToList();
+            caldia = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    caldia.Price = 190;
+
+                    break;
+                case "2500":
+                    caldia.Price = 200;
+                    break;
+                case "c3000":
+                    caldia.Price = 200;
+                    break;
+                case "4000":
+                    caldia.Price = 220;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = caldia.Name, Brend = caldia.Brend, Id = caldia.Id, Colour = caldia.Colour, Discount = caldia.Discount, Price = caldia.Price, Size = model.Size, Image = caldia.Image, Page = caldia.Page, Type = caldia.Type, Property = caldia.Property, MinMaxPrice = caldia.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
+        // Daiwa Exist LT
+        public PerchaseModel exist = new PerchaseModel();
+        public IActionResult Exist()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 32).ToList();
+            exist = i[0];
+            return View(exist);
+        }
+        public IActionResult BuyExist(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 32).ToList();
+            exist = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    exist.Price = 850;
+
+                    break;
+                case "2500":
+                    exist.Price = 900;
+                    break;
+                case "c3000":
+                    exist.Price = 900;
+                    break;
+                case "4000":
+                    exist.Price = 920;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = exist.Name, Brend = exist.Brend, Id = exist.Id, Colour = exist.Colour, Discount = exist.Discount, Price = exist.Price, Size = model.Size, Image = exist.Image, Page = exist.Page, Type = exist.Type, Property = exist.Property, MinMaxPrice = exist.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
+        // DAIWA Luvias LT 
+        public PerchaseModel luvias = new PerchaseModel();
+        public IActionResult Luvias()
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 33).ToList();
+            luvias = i[0];
+            return View(luvias);
+        }
+        public IActionResult BuyLuvias(PerchaseModel model)
+        {
+            var i = _content.AllPerchaseItems.Where(x => x.Id == 33).ToList();
+            luvias = i[0];
+            switch (model.Size)
+            {
+                case "1000":
+                    luvias.Price = 650;
+
+                    break;
+                case "2500":
+                    luvias.Price = 700;
+                    break;
+                case "c3000":
+                    luvias.Price = 700;
+                    break;
+                case "4000":
+                    luvias.Price = 720;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = luvias.Name, Brend = luvias.Brend, Id = luvias.Id, Colour = luvias.Colour, Discount = luvias.Discount, Price = luvias.Price, Size = model.Size, Image = luvias.Image, Page = luvias.Page, Type = luvias.Type, Property = luvias.Property, MinMaxPrice = luvias.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
     }
 }
