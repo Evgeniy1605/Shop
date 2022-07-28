@@ -367,7 +367,13 @@ namespace Shop.Controllers
         {
             items = _content.AllPerchaseItems.ToList();
             var result = new List<PerchaseModel>();
-            string Find2 = Find.ToString();
+            string Find2 = "?";
+            if (Find !=null)
+            {
+                Find2 = Find.ToString();
+            }
+                
+
             result = items.Where(x => x.Name.Contains(Find2)).ToList();
             return View(result);
             
