@@ -414,13 +414,13 @@ namespace Shop.Controllers
         public PerchaseModel vivo_nuovo  = new PerchaseModel();
         public IActionResult VivoNuovo()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 17).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Vivo Nuovo").ToList();
             vivo_nuovo = i[0];
             return View(vivo_nuovo);
         }
         public IActionResult BuyVivoNuovo(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 17).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Vivo Nuovo").ToList();
             vivo_nuovo = i[0];
             switch (model.Property)
             {
@@ -461,13 +461,13 @@ namespace Shop.Controllers
         public PerchaseModel icecube = new PerchaseModel();
         public IActionResult IceCube()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 18).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Ice Cube").ToList();
             icecube = i[0];
             return View(icecube);
         }
         public IActionResult BuyIceCube(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 18).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Ice Cube").ToList();
             icecube = i[0];
             switch (model.Property)
             {
@@ -496,13 +496,13 @@ namespace Shop.Controllers
         public PerchaseModel sram = new PerchaseModel();
         public IActionResult Sram()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 19).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Sram").ToList();
             sram = i[0];
             return View(sram);
         }
         public IActionResult BuySram(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 19).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Sram").ToList();
             sram = i[0];
             switch (model.Property)
             {
@@ -531,13 +531,13 @@ namespace Shop.Controllers
         public PerchaseModel inbite = new PerchaseModel();
         public IActionResult Inbite()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 20).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Inbite").ToList();
             inbite = i[0];
             return View(inbite);
         }
         public IActionResult BuyInbite(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 20).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Inbite").ToList();
             inbite = i[0];
             switch (model.Property)
             {
@@ -564,13 +564,13 @@ namespace Shop.Controllers
         public PerchaseModel finezza = new PerchaseModel();
         public IActionResult Finezza()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 21).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Finezza").ToList();
             finezza = i[0];
             return View(finezza);
         }
         public IActionResult BuyFinezza(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 21).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Finezza").ToList();
             finezza = i[0];
             switch (model.Property)
             {
@@ -599,13 +599,13 @@ namespace Shop.Controllers
         public PerchaseModel calamaretti = new PerchaseModel();
         public IActionResult Calamaretti()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 22).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Calamaretti").ToList();
             calamaretti = i[0];
             return View(calamaretti);
         }
         public IActionResult BuyCalamaretti(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 22).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Calamaretti").ToList();
             calamaretti = i[0];
             switch (model.Property)
             {
@@ -634,13 +634,13 @@ namespace Shop.Controllers
         public PerchaseModel silverado = new PerchaseModel();
         public IActionResult Silverado()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 23).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Silverado").ToList();
             silverado = i[0];
             return View(silverado);
         }
         public IActionResult BuySilverado(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 23).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Silverado").ToList();
             silverado = i[0];
             switch (model.Property)
             {
@@ -669,13 +669,13 @@ namespace Shop.Controllers
         public PerchaseModel poseidon = new PerchaseModel();
         public IActionResult Poseidon()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 24).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Poseidon Salty Sensation").ToList();
             poseidon = i[0];
             return View(poseidon);
         }
         public IActionResult BuyPoseidon(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 24).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Poseidon Salty Sensation").ToList();
             poseidon = i[0];
             switch (model.Property)
             {
@@ -704,13 +704,13 @@ namespace Shop.Controllers
         public PerchaseModel squidlaw = new PerchaseModel();
         public IActionResult Squidlaw()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 25).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Squidlaw Imperial").ToList();
             squidlaw = i[0];
             return View(squidlaw);
         }
         public IActionResult BuySquidlaw(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 25).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Squidlaw Imperial").ToList();
             squidlaw = i[0];
             switch (model.Property)
             {
@@ -739,13 +739,13 @@ namespace Shop.Controllers
         public PerchaseModel rerange = new PerchaseModel();
         public IActionResult Rerange()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 26).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Rerange").ToList();
             rerange = i[0];
             return View(rerange);
         }
         public IActionResult BuyRerange(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 26).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Rerange").ToList();
             rerange = i[0];
             switch (model.Size)
             {
@@ -770,13 +770,13 @@ namespace Shop.Controllers
         public PerchaseModel stradic = new PerchaseModel();
         public IActionResult Stradic()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 27).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Stradic").ToList();
             stradic = i[0];
             return View(stradic);
         }
         public IActionResult BuyStradic(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 27).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Stradic").ToList();
             stradic = i[0];
             switch (model.Size)
             {
@@ -806,13 +806,13 @@ namespace Shop.Controllers
         public PerchaseModel ultegra = new PerchaseModel();
         public IActionResult Ultegra()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 28).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Ultegra").ToList();
             ultegra = i[0];
             return View(ultegra);
         }
         public IActionResult BuyUltegra(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 28).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Ultegra").ToList();
             ultegra = i[0];
             switch (model.Size)
             {
@@ -842,13 +842,13 @@ namespace Shop.Controllers
         public PerchaseModel twinpower = new PerchaseModel();
         public IActionResult TwinPower()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 29).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Twin Power").ToList();
             twinpower = i[0];
             return View(twinpower);
         }
         public IActionResult BuyTwinPower(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 29).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Twin Power").ToList();
             twinpower = i[0];
             switch (model.Size)
             {
@@ -878,13 +878,13 @@ namespace Shop.Controllers
         public PerchaseModel stella = new PerchaseModel();
         public IActionResult Stella()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 30).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Stella").ToList();
             stella = i[0];
             return View(stella);
         }
         public IActionResult BuyStella(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 30).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Stella").ToList();
             stella = i[0];
             switch (model.Size)
             {
@@ -914,13 +914,13 @@ namespace Shop.Controllers
         public PerchaseModel caldia = new PerchaseModel();
         public IActionResult Caldia()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 31).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Caldia LT").ToList();
             caldia = i[0];
             return View(caldia);
         }
         public IActionResult BuyCaldia(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 31).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Caldia LT").ToList();
             caldia = i[0];
             switch (model.Size)
             {
@@ -951,13 +951,13 @@ namespace Shop.Controllers
         public PerchaseModel exist = new PerchaseModel();
         public IActionResult Exist()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 32).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Exist LT").ToList();
             exist = i[0];
             return View(exist);
         }
         public IActionResult BuyExist(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 32).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Exist LT").ToList();
             exist = i[0];
             switch (model.Size)
             {
@@ -988,13 +988,13 @@ namespace Shop.Controllers
         public PerchaseModel luvias = new PerchaseModel();
         public IActionResult Luvias()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 33).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Luvias LT").ToList();
             luvias = i[0];
             return View(luvias);
         }
         public IActionResult BuyLuvias(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 33).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Luvias LT").ToList();
             luvias = i[0];
             switch (model.Size)
             {
