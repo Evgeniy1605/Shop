@@ -285,15 +285,9 @@ namespace Shop.Controllers
         }
         public IActionResult BuyMagallon(PerchaseModel model)
         {
-            var AllItemsList = _content.AllPerchaseItems.ToList();
+            var AllItemsList = _content.AllPerchaseItems.Where(x => x.Name == "Tiny Magallon").ToList();
 
-            foreach (var item in AllItemsList)
-            {
-                if (item.Id == 14)
-                {
-                    magallon = item;
-                }
-            }
+            magallon = AllItemsList[0];
             var basketModel = new BasketModel() { Name = magallon.Name, Colour = model.Colour, Brend = magallon.Brend, Discount = magallon.Discount, Image = magallon.Image, Page = magallon.Page, Price = magallon.Price, Size = magallon.Size };
             BasketItem.Add(basketModel);
             FN = BasketItem.Sum(x => x.Price);
