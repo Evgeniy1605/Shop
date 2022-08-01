@@ -379,13 +379,13 @@ namespace Shop.Controllers
         public PerchaseModel tiro = new PerchaseModel();
         public IActionResult Tiro()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 16).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Tiro").ToList();
             tiro = i[0];
             return View(tiro);
         }
         public IActionResult BuyTiro(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 16).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Tiro").ToList();
             tiro = i[0];
             switch (model.Property)
             {
