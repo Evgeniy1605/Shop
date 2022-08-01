@@ -269,15 +269,9 @@ namespace Shop.Controllers
         
         public IActionResult Magallon()
         {
-            var AllItemsList = _content.AllPerchaseItems.ToList();
+            var AllItemsList = _content.AllPerchaseItems.Where(x => x.Name == "Tiny Magallon").ToList();
 
-            foreach (var item in AllItemsList)
-            {
-                if (item.Id == 14)
-                {
-                    magallon = item;
-                }
-            }
+            magallon = AllItemsList[0];
 
 
 
@@ -299,14 +293,14 @@ namespace Shop.Controllers
         public new PerchaseModel archback = new PerchaseModel();
         public IActionResult Archback()
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 15).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Archback").ToList();
             archback = i[0];
             return View(archback);
         }
 
         public IActionResult BuyArchback(PerchaseModel model)
         {
-            var i = _content.AllPerchaseItems.Where(x => x.Id == 15).ToList();
+            var i = _content.AllPerchaseItems.Where(x => x.Name == "Archback").ToList();
             archback = i[0];
             archback.Colour = model.Colour;
 
