@@ -2,6 +2,8 @@
 using Shop.Models;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Shop.Controllers
 {
@@ -22,7 +24,7 @@ namespace Shop.Controllers
         public PerchaseModel Montero = new PerchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
         public ZipbaitsOrbitModel orbit = new ZipbaitsOrbitModel() { Name = "Orbit", Brend = "Zipbaits", Image = "Malas", Discount = 0, Page = "OrbitPage" };
 
-
+        
         public IActionResult Index()
         {
             items = _content.AllPerchaseItems.ToList();
@@ -1023,6 +1025,14 @@ namespace Shop.Controllers
             int x = (int)FN;
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
+        }
+        // Logout
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            BasketItem.RemoveRange(0, BasketItem.Count);
+            return Redirect("/");
         }
 
     }

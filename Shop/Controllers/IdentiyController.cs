@@ -73,12 +73,7 @@ namespace Shop.Controllers
             }
             return View("failed");
         }
-        [Authorize]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync();
-            return Redirect("/");
-        }
+        
         [Authorize]
         public IActionResult UserPage()
         {
