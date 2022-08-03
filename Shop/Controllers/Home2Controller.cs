@@ -191,6 +191,8 @@ namespace Shop.Controllers
         {
             _content = content;
         }
+
+        // save data
         public IActionResult SaveData(Order or)
         {
             if (or.Email ==null)
@@ -312,6 +314,7 @@ namespace Shop.Controllers
             return View("basket", BasketItem);
         }
 
+        // Submit
         public IActionResult SubmitPerchase()
         {
             if (User.Identity.IsAuthenticated)
@@ -411,6 +414,7 @@ namespace Shop.Controllers
             return View("basket", BasketItem);
         }
 
+        // Vivo
         public PerchaseModel vivo_nuovo  = new PerchaseModel();
         public IActionResult VivoNuovo()
         {

@@ -67,7 +67,7 @@ namespace Shop.Controllers
                         var claimsIdentity = new ClaimsIdentity(calaims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                         await HttpContext.SignInAsync(claimsPrincipal);
-                        return Redirect("/");
+                       return Redirect("/");
                     }
                 }
             }
