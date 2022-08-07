@@ -22,8 +22,6 @@ namespace Shop.Controllers
 
 
         public PerchaseModel Montero = new PerchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
-        public ZipbaitsOrbitModel orbit = new ZipbaitsOrbitModel() { Name = "Orbit", Brend = "Zipbaits", Image = "Malas", Discount = 0, Page = "OrbitPage" };
-
         
         
         public async Task<IActionResult> Index()
@@ -80,59 +78,41 @@ namespace Shop.Controllers
             ViewData["Message"] = x.ToString();
             return View("basket", BasketItem);
         }
+
+
+        // Orbit
+        public PerchaseModel orbit = new PerchaseModel();
         public IActionResult OrbitPage()
         {
+            orbit = _content.AllPerchaseItems.Single(x => x.Name == "Orbit");
             return View(orbit);
         }
 
-
-
-        public IActionResult BuyOrbit(ZipbaitsOrbitModel orbit)
+        public IActionResult BuyOrbit(PerchaseModel model)
         {
-            BasketModel orbit1 = new BasketModel();
-            orbit1.Brend = this.orbit.Brend;
-            orbit1.Name = this.orbit.Name;
-            orbit1.Price = this.orbit.Price;
-            orbit1.Discount = this.orbit.Discount;
-
-            ///
-            int counter = 0;
-            if (orbit.Size80 == true)
-                counter++;
-            if (orbit.Size110 == true)
-                counter++;
-            if (orbit.Size130 == true)
-                counter++;
-            if (counter == 0)
-                return View("SizeEmpty");
-            else if (counter > 1)
-                return View("TwoSizeError");
-
-            else
+            orbit = _content.AllPerchaseItems.Single(x => x.Name == "Orbit");
+            switch (model.Size)
             {
-                if (orbit.Size80 = true)
-                {
-                    orbit1.Price = 50;
-                }
-
-
-                if (orbit.Size110 == true)
-                {
-                    orbit1.Price = 55;
-                }
-
-                else
-                {
-                    orbit1.Price = 60;
-
-                }
-                BasketItem.Add(orbit1);
-                FN = BasketItem.Sum(x => x.Price);
-                int x = (int)FN;
-                ViewData["Message"] = x.ToString();
-                return View("basket", BasketItem);
+                case "80":
+                    orbit.Price = 50;
+                    break;
+                case "110":
+                    orbit.Price = 55;
+                    break;
+                case "130":
+                    orbit.Price = 60;
+                    break;
             }
+            var basketItem = new BasketModel { Name = orbit.Name, Brend = orbit.Brend, Id = orbit.Id, Colour = model.Colour, Discount = orbit.Discount, Price = orbit.Price, Size = model.Size, Image = orbit.Image, Page = orbit.Page, Type = orbit.Type, Property = orbit.Property, MinMaxPrice = orbit.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+            
         }
+
+       
 
         // Malas
 
@@ -281,7 +261,7 @@ namespace Shop.Controllers
                 perchase.Price = 7;
             else if (perchase.Size == "130")
                 perchase.Price = 10;
-            BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size };
+            BasketModel basketModel = new BasketModel() { Name = inquisitor.Name, Brend = inquisitor.Brend, Colour = perchase.Colour, Discount = inquisitor.Discount, Image = inquisitor.Image, Page = "Inquisitor", Price = perchase.Price, Size = perchase.Size, Type = inquisitor.Type, Id = inquisitor.Id, Property = inquisitor.Property, MinMaxPrice = inquisitor.MinMaxPrice };
             BasketItem.Add(basketModel);
             FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;
@@ -302,7 +282,7 @@ namespace Shop.Controllers
         public IActionResult BuyMagallon(PerchaseModel model)
         {
             magallon = _content.AllPerchaseItems.Single(x => x.Name == "Tiny Magallon");
-            var basketModel = new BasketModel() { Name = magallon.Name, Colour = model.Colour, Brend = magallon.Brend, Discount = magallon.Discount, Image = magallon.Image, Page = magallon.Page, Price = magallon.Price, Size = magallon.Size };
+            var basketModel = new BasketModel() { Name = magallon.Name, Colour = model.Colour, Brend = magallon.Brend, Discount = magallon.Discount, Image = magallon.Image, Page = magallon.Page, Price = magallon.Price, Size = magallon.Size, Type = magallon.Type, MinMaxPrice = magallon.MinMaxPrice, Id = magallon.Id };
             BasketItem.Add(basketModel);
             FN = BasketItem.Sum(x => x.Price);
             int x = (int)FN;

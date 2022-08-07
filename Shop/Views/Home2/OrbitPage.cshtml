@@ -1,35 +1,38 @@
-﻿@model ZipbaitsOrbitModel
+﻿@model PerchaseModel
+@{
+    string path = "~/Images/" + Model.Image + ".png";
+}
 <h2>
-    <img src="~/Images/Orbit.png" class="align-content-around" />
+    <img src="@path" class="align-content-around" asp-append-version = "true" />
 </h2>
 <form asp-controller="Home2" asp-action="BuyOrbit">
     <div>
         Size 80
-        <input type="checkbox" @Html.CheckBoxFor(x =>x.Size80)
+        <input type="radio" asp-for="Size" value="80" id="23" checked ="checked" /> 50$
     </div>
     <div>
         Size 110
-        <input asp-for="Size110" type="checkbox" />
+        <input asp-for="Size" type="radio" id="23" value="110" /> 55$
     </div>
     <div>
         Size 130
-        <input asp-for=Size130 type="checkbox" />
+        <input asp-for="Size" type="radio" id="23" value="130" /> 60$
     </div>
     <br />
     <label>Choose a color</label>
     <br />
     <br />
 
-    @Html.RadioButtonFor(x => x.Colour, value:"col_1", htmlAttributes:new{@checked = true}) <img src="~/Images/Orbit/col_1.png" width="140" />
+    @Html.RadioButtonFor(x => x.Colour, value:"col_1", htmlAttributes:new{@checked = true}) <img src="~/Images/Orbit/col_1.png" width="140" /> (col_1)
+    <br class="bb-db1" />
     <br />
+    @Html.RadioButtonFor(x => x.Colour, "col_2") <img src="~/Images/Orbit/col_2.png" width="140" /> (col_2)
+    <br class="bb-db1" />
     <br />
-    @Html.RadioButtonFor(x => x.Colour, "Col_2") <img src="~/Images/Orbit/col_2.png" width="140" />
+    @Html.RadioButtonFor(x => x.Colour, "col_3") <img src="~/Images/Orbit/col_3.png" width="140" /> (col_3)
+    <br class="bb-db1" />
     <br />
-    <br />
-    @Html.RadioButtonFor(x => x.Colour, "Col_3") <img src="~/Images/Orbit/col_3.png" width="140" />
-    <br />
-    <br />
-    <input asp-for=Colour type="radio" value="col_4" checked="checked" /> <img src="~/Images/Orbit/col_4.png" width="140" />
+    <input asp-for=Colour type="radio" value="col_4" checked="checked" /> <img src="~/Images/Orbit/col_4.png" width="140" /> (col_4)
     <br />
     <br />
     <div>

@@ -6,9 +6,23 @@
     {
         string path = "~/Images/" + item.Image + ".png";
         <li>
-            
+            <img src="@path" asp-append-version = "true" width="150" >
             @item.Brend 
             @item.Name
+            @if (item.Type == "Vobler")
+            {
+                @item.Size 
+                <label>mm</label>
+                @item.Colour
+            }
+            @if (item.Type == "Rod")
+            {
+                @item.Property
+            }
+            @if (item.Type == "Wheel")
+            {
+                @item.Size
+            }
             @item.Price $
         </li>
         <br />
