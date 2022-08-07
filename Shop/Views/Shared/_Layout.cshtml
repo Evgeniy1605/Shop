@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>@ViewData["Title"] - Shop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -29,7 +29,7 @@
                             <a asp-controller="Home2" asp-action="Index" class="nav-link pe-3 me-4 fw-bold " aria-current="page">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pe-3  me-4 fw-bold"  asp-controller="Home2" asp-action="AllItems">SHOP</a>
+                            <a class="nav-link pe-3  me-4 fw-bold" asp-controller="Home2" asp-action="AllItems">SHOP</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pe-3 me-4 fw-bold" href="#">PAGES</a>
@@ -92,8 +92,9 @@
                         <span class="fas fa-chevron-down"></span>
                     </a>
                 </p>
+                
                 <div class="collapse show border" id="collapseExample">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled" >
                         <li><a asp-controller="Extra" asp-action="TodaysBestOffers" class="dropdown-item">Today's best offers</a></li>
                         <li><a asp-controller="Extra" asp-action="GraphiteleaderRods" class="dropdown-item">Graphiteleader</a></li>
                         <li><a asp-controller="Extra" asp-action="Shimano" class="dropdown-item">Shimano</a></li>
@@ -103,7 +104,15 @@
                         <li><a asp-controller="Extra" asp-action="Zipbaits" class="dropdown-item">Zipbaits</a></li>
                         <li><a asp-controller="Extra" asp-action="JACKALL" class="dropdown-item">JACKALL</a></li>
                         <li><a asp-controller="Extra" asp-action="Daiwa" class="dropdown-item">Daiwa</a></li>
-                        
+                        <form method="post" asp-controller="Extra" asp-action="PriceRange" >
+                        <li calass="dropdown-item slider w-25">
+                            <hr class="" />
+                            <p class="StartSlider" >Price range</p>
+                                <input class="StartSlider" name="Range" type="range" min="0" max="1500" value="100" oninput="rangeValue.innerText = this.value">
+                                 <p  id="rangeValue">100</p>
+                                <button class="btn btn-primary ButtonForSlider w-25">OK</button>
+                        </li>
+                        </form>                   
                     </ul>
                 </div>
             </div>
@@ -125,7 +134,7 @@
                                 <li><a class="dropdown-item" asp-controller="Home2" asp-action="Voblers">Voblers</a></li>
                                 <li><a class="dropdown-item" asp-controller="Extra" asp-action="AllRods">Rods</a></li>
                                 <li><a class="dropdown-item" asp-controller="Extra" asp-action="Wheels">Wheels</a></li>
-                                
+
                             </ul>
                         </div>
                         <form method="post" asp-controller="Home2" asp-action="FindItem2">

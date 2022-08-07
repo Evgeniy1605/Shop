@@ -184,5 +184,15 @@ namespace Shop.Controllers
             result = items.Where(x => x.Brend == "Shimano").ToList();
             return View("FoundProducts", result);
         }
+
+        // PriceRange
+        [HttpPost]
+        public IActionResult PriceRange(string Range)
+        {
+            int.TryParse(Range, out int number);
+            var result = _content.AllPerchaseItems.Where(x => x.Price < number).ToList();
+           
+             return View("FoundProducts", result);
+        }
     }
 }
