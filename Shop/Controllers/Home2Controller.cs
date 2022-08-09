@@ -1069,6 +1069,36 @@ namespace Shop.Controllers
             return View("basket", BasketItem);
         }
 
+        // Lucky Craft Sammy
 
+        public PerchaseModel sammy = new PerchaseModel();
+        public IActionResult Sammy()
+        {
+            sammy = _content.AllPerchaseItems.Single(x => x.Name == "Sammy" && x.Brend == "Lucky Craft");
+            return View(sammy);
+        }
+        public IActionResult BuySammy(PerchaseModel model)
+        {
+            sammy = _content.AllPerchaseItems.Single(x => x.Name == "Sammy" && x.Brend == "Lucky Craft");
+            switch (model.Size)
+            {
+                case "65":
+                    sammy.Price = 18;
+                    break;
+                case "85":
+                    sammy.Price = 20;
+                    break;
+                case "115":
+                    sammy.Price = 26;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = sammy.Name, Brend = sammy.Brend, Id = sammy.Id, Colour = model.Colour, Discount = sammy.Discount, Price = sammy.Price, Size = model.Size, Image = sammy.Image, Page = sammy.Page, Type = sammy.Type, Property = sammy.Property, MinMaxPrice = sammy.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
     }
 }
