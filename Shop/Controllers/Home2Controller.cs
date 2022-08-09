@@ -1037,5 +1037,38 @@ namespace Shop.Controllers
             return Redirect("/");
         }
 
+        // Lucky Craft Pointer
+
+        public PerchaseModel pointer = new PerchaseModel();
+        public IActionResult Pointer()
+        {
+            pointer = _content.AllPerchaseItems.Single(x => x.Name == "Pointer" && x.Brend == "Lucky Craft");
+            return View(pointer);
+        }
+        public IActionResult BuyPointer(PerchaseModel model)
+        {
+            pointer = _content.AllPerchaseItems.Single(x => x.Name == "Pointer" && x.Brend == "Lucky Craft");
+            switch (model.Size)
+            {
+                case "43":
+                    pointer.Price = 20;
+                    break;
+                case "110":
+                    pointer.Price = 35;
+                    break;
+                case "128":
+                    pointer.Price = 38;
+                    break;
+            }
+
+            var basketItem = new BasketModel { Name = pointer.Name, Brend = pointer.Brend, Id = pointer.Id, Colour = model.Colour, Discount = pointer.Discount, Price = pointer.Price, Size = model.Size, Image = pointer.Image, Page = pointer.Page, Type = pointer.Type, Property = pointer.Property, MinMaxPrice = pointer.MinMaxPrice };
+            BasketItem.Add(basketItem);
+            FN = BasketItem.Sum(x => x.Price);
+            int x = (int)FN;
+            ViewData["Message"] = x.ToString();
+            return View("basket", BasketItem);
+        }
+
+
     }
 }
