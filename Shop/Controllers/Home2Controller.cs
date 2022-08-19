@@ -15,10 +15,7 @@ namespace Shop.Controllers
         public float FN { get; set; }
 
 
-        /// <summary>
-        /// ////////
         public List<Order> FackeData = new List<Order>();
-        /// </summary>
 
 
         public PurchaseModel Montero = new PurchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
