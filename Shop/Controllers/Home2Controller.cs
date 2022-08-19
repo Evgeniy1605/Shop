@@ -144,7 +144,7 @@ namespace Shop.Controllers
             rigge = _content.AllPerchaseItems.Single(x => x.Name == "Rigge" && x.Brend == "Zipbaits");
             return View(rigge);
         }
-        public IActionResult BuyRigge(ZipbaitsOrbitModel model )
+        public IActionResult BuyRigge(PurchaseModel model )
         {
 
             rigge = _content.AllPerchaseItems.Single(x => x.Name == "Rigge" && x.Brend == "Zipbaits");

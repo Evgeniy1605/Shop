@@ -21,13 +21,5 @@
 
     }
 
-    public class ZipbaitsOrbitModel : PurchaseModel
-    {
-        public bool Size80 { get; set; } = false;
-        public bool Size110 { get; set; } = false;
-        public bool Size130 { get; set; } = false;
-
-
-
-    }
+   
 }
