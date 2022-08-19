@@ -77,7 +77,7 @@ namespace Shop.Controllers
             else
             {
                 PurchaseModel NewPerchase = new PurchaseModel() { Name = input.Name, Brend = input.Brend, Image = input.Image, Page = input.NameOfPage, Price = 0, Colour = "_", Discount = 0, Size = "_"};
-                InformationAbautNewProdact newProdact = new InformationAbautNewProdact() { Name = input.Name, Brend = input.Brend, Image = input.Image, AditionalInformation = input.InformatinOfThePage, Page = input.NameOfPage };
+                InformationAboutNewProduct newProdact = new InformationAboutNewProduct() { Name = input.Name, Brend = input.Brend, Image = input.Image, AditionalInformation = input.InformatinOfThePage, Page = input.NameOfPage };
                 _content.Add(NewPerchase);
                 _content.SaveChanges();
                 _content.Add(newProdact);

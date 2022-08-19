@@ -11,93 +11,93 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    public class InformationAbautNewProdactsController : Controller
+    public class PurchaseModelsController : Controller
     {
         private readonly OrderDbConenction _context;
 
-        public InformationAbautNewProdactsController(OrderDbConenction context)
+        public PurchaseModelsController(OrderDbConenction context)
         {
             _context = context;
         }
 
-        // GET: InformationAbautNewProdacts
+        // GET: PerchaseModels
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
-              return _context.InformationAbautNewProdact != null ? 
-                          View(await _context.InformationAbautNewProdact.ToListAsync()) :
-                          Problem("Entity set 'OrderDbConenction.InformationAbautNewProdact'  is null.");
+              return _context.AllPerchaseItems != null ? 
+                          View(await _context.AllPerchaseItems.ToListAsync()) :
+                          Problem("Entity set 'OrderDbConenction.AllPerchaseItems'  is null.");
         }
 
-        // GET: InformationAbautNewProdacts/Details/5
+        // GET: PerchaseModels/Details/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.InformationAbautNewProdact == null)
+            if (id == null || _context.AllPerchaseItems == null)
             {
                 return NotFound();
             }
 
-            var informationAbautNewProdact = await _context.InformationAbautNewProdact
+            var perchaseModel = await _context.AllPerchaseItems
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (informationAbautNewProdact == null)
+            if (perchaseModel == null)
             {
                 return NotFound();
             }
 
-            return View(informationAbautNewProdact);
+            return View(perchaseModel);
         }
 
-        // GET: InformationAbautNewProdacts/Create
+        // GET: PerchaseModels/Create
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: InformationAbautNewProdacts/Create
+        // POST: PerchaseModels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("Id,Brend,Name,Image,Page,AditionalInformation")] InformationAboutNewProduct informationAbautNewProdact)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PurchaseModel perchaseModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(informationAbautNewProdact);
+                _context.Add(perchaseModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(informationAbautNewProdact);
+            return View(perchaseModel);
         }
 
-        // GET: InformationAbautNewProdacts/Edit/5
+        // GET: PerchaseModels/Edit/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.InformationAbautNewProdact == null)
+            if (id == null || _context.AllPerchaseItems == null)
             {
                 return NotFound();
             }
 
-            var informationAbautNewProdact = await _context.InformationAbautNewProdact.FindAsync(id);
-            if (informationAbautNewProdact == null)
+            var perchaseModel = await _context.AllPerchaseItems.FindAsync(id);
+            if (perchaseModel == null)
             {
                 return NotFound();
             }
-            return View(informationAbautNewProdact);
+            return View(perchaseModel);
         }
 
-        // POST: InformationAbautNewProdacts/Edit/5
+        // POST: PerchaseModels/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brend,Name,Image,Page,AditionalInformation")] InformationAboutNewProduct informationAbautNewProdact)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PurchaseModel perchaseModel)
         {
-            if (id != informationAbautNewProdact.Id)
+            if (id != perchaseModel.Id)
             {
                 return NotFound();
             }
@@ -106,12 +106,12 @@ namespace Shop.Controllers
             {
                 try
                 {
-                    _context.Update(informationAbautNewProdact);
+                    _context.Update(perchaseModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InformationAbautNewProdactExists(informationAbautNewProdact.Id))
+                    if (!PerchaseModelExists(perchaseModel.Id))
                     {
                         return NotFound();
                     }
@@ -122,51 +122,51 @@ namespace Shop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(informationAbautNewProdact);
+            return View(perchaseModel);
         }
 
-        // GET: InformationAbautNewProdacts/Delete/5
+        // GET: PerchaseModels/Delete/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.InformationAbautNewProdact == null)
+            if (id == null || _context.AllPerchaseItems == null)
             {
                 return NotFound();
             }
 
-            var informationAbautNewProdact = await _context.InformationAbautNewProdact
+            var perchaseModel = await _context.AllPerchaseItems
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (informationAbautNewProdact == null)
+            if (perchaseModel == null)
             {
                 return NotFound();
             }
 
-            return View(informationAbautNewProdact);
+            return View(perchaseModel);
         }
 
-        // POST: InformationAbautNewProdacts/Delete/5
+        // POST: PerchaseModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.InformationAbautNewProdact == null)
+            if (_context.AllPerchaseItems == null)
             {
-                return Problem("Entity set 'OrderDbConenction.InformationAbautNewProdact'  is null.");
+                return Problem("Entity set 'OrderDbConenction.AllPerchaseItems'  is null.");
             }
-            var informationAbautNewProdact = await _context.InformationAbautNewProdact.FindAsync(id);
-            if (informationAbautNewProdact != null)
+            var perchaseModel = await _context.AllPerchaseItems.FindAsync(id);
+            if (perchaseModel != null)
             {
-                _context.InformationAbautNewProdact.Remove(informationAbautNewProdact);
+                _context.AllPerchaseItems.Remove(perchaseModel);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InformationAbautNewProdactExists(int id)
+        private bool PerchaseModelExists(int id)
         {
-          return (_context.InformationAbautNewProdact?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.AllPerchaseItems?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

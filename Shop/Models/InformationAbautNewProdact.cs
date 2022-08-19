@@ -1,6 +1,6 @@
 ﻿namespace Shop.Models
 {
-    public class InformationAbautNewProdact
+    public class InformationAboutNewProduct
     {
         public int Id { get; set; }
         public string Brend { get; set; }
