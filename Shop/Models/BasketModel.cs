@@ -1,6 +1,6 @@
 ﻿namespace Shop.Models
 {
-    public class BasketModel:PerchaseModel
+    public class BasketModel:PurchaseModel
     {
         public string Name { get; set; }
         public string Brend { get; set; }

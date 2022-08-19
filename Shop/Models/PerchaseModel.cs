@@ -1,7 +1,7 @@
 ﻿namespace Shop.Models
 {
    
-    public class PerchaseModel
+    public class PurchaseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,7 +21,7 @@
 
     }
 
-    public class ZipbaitsOrbitModel : PerchaseModel
+    public class ZipbaitsOrbitModel : PurchaseModel
     {
         public bool Size80 { get; set; } = false;
         public bool Size110 { get; set; } = false;

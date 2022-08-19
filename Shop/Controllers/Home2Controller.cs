@@ -9,7 +9,7 @@ namespace Shop.Controllers
 {
     public class Home2Controller : Controller
     {
-        public List<PerchaseModel> items = new List<PerchaseModel>();
+        public List<PurchaseModel> items = new List<PurchaseModel>();
 
         public static List<BasketModel> BasketItem = new List<BasketModel>() { };
         public float FN { get; set; }
@@ -21,7 +21,7 @@ namespace Shop.Controllers
         /// </summary>
 
 
-        public PerchaseModel Montero = new PerchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
+        public PurchaseModel Montero = new PurchaseModel() { Name = "Montero", Brend = "StrikePro", Price = 20, Image = "", Discount = 0, Page = "BuyMontero" };
         
         
         public async Task<IActionResult> Index()
@@ -51,7 +51,7 @@ namespace Shop.Controllers
             Montero = _content.AllPerchaseItems.Single(x => x.Name == "Montero" && x.Brend == "Strike pro");
             return View(Montero);
         }
-        public IActionResult BuyMontero(PerchaseModel model)
+        public IActionResult BuyMontero(PurchaseModel model)
         {
 
             Montero = _content.AllPerchaseItems.Single(x => x.Name == "Montero" && x.Brend == "Strike pro");
@@ -81,14 +81,14 @@ namespace Shop.Controllers
 
 
         // Orbit
-        public PerchaseModel orbit = new PerchaseModel();
+        public PurchaseModel orbit = new PurchaseModel();
         public IActionResult OrbitPage()
         {
             orbit = _content.AllPerchaseItems.Single(x => x.Name == "Orbit");
             return View(orbit);
         }
 
-        public IActionResult BuyOrbit(PerchaseModel model)
+        public IActionResult BuyOrbit(PurchaseModel model)
         {
             orbit = _content.AllPerchaseItems.Single(x => x.Name == "Orbit");
             switch (model.Size)
@@ -116,13 +116,13 @@ namespace Shop.Controllers
 
         // Malas
 
-        PerchaseModel malas = new PerchaseModel();
+        PurchaseModel malas = new PurchaseModel();
         public IActionResult Malas()
         {
             malas = _content.AllPerchaseItems.Single(x => x.Name == "Malas" && x.Brend == "Lucky Craft");
             return View(malas);
         }
-        public IActionResult BuyMalas(PerchaseModel model)
+        public IActionResult BuyMalas(PurchaseModel model)
         {
             malas = _content.AllPerchaseItems.Single(x => x.Name == "Malas" && x.Brend == "Lucky Craft");
             if (model.Colour == "col-1")
@@ -139,7 +139,7 @@ namespace Shop.Controllers
         }
 
         // Rigge
-        PerchaseModel rigge = new PerchaseModel();
+        PurchaseModel rigge = new PurchaseModel();
         //{ Brend = "Zipbaits", Name = "Rigge", Page = "Rigge" };
 
         public IActionResult Rigge()
@@ -176,7 +176,7 @@ namespace Shop.Controllers
         public IActionResult FindItem(SearchModel search)
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Name.Contains(search.Input)).ToList();
             return View(result);
         }
@@ -246,13 +246,13 @@ namespace Shop.Controllers
         }
 
         // Inquisitor
-        private PerchaseModel inquisitor = new PerchaseModel();
+        private PurchaseModel inquisitor = new PurchaseModel();
         public IActionResult Inquisitor()
         {
             inquisitor = _content.AllPerchaseItems.Single(x => x.Name == "Inquisitor" && x.Brend == "Strike pro");
             return View(inquisitor);
         }
-        public IActionResult BuyInquisitor(PerchaseModel perchase)
+        public IActionResult BuyInquisitor(PurchaseModel perchase)
         {
             inquisitor = _content.AllPerchaseItems.Single(x => x.Name == "Inquisitor" && x.Brend == "Strike pro");
             if (perchase.Size == "80")
@@ -272,14 +272,14 @@ namespace Shop.Controllers
 
         }
         // Magallon
-        public PerchaseModel magallon = new PerchaseModel();
+        public PurchaseModel magallon = new PurchaseModel();
         
         public IActionResult Magallon()
         {
             magallon = _content.AllPerchaseItems.Single(x => x.Name == "Tiny Magallon");
             return View(magallon);
         }
-        public IActionResult BuyMagallon(PerchaseModel model)
+        public IActionResult BuyMagallon(PurchaseModel model)
         {
             magallon = _content.AllPerchaseItems.Single(x => x.Name == "Tiny Magallon");
             var basketModel = new BasketModel() { Name = magallon.Name, Colour = model.Colour, Brend = magallon.Brend, Discount = magallon.Discount, Image = magallon.Image, Page = magallon.Page, Price = magallon.Price, Size = magallon.Size, Type = magallon.Type, MinMaxPrice = magallon.MinMaxPrice, Id = magallon.Id };
@@ -293,14 +293,14 @@ namespace Shop.Controllers
 
 
         // Archback
-        public new PerchaseModel archback = new PerchaseModel();
+        public new PurchaseModel archback = new PurchaseModel();
         public IActionResult Archback()
         {
             archback = _content.AllPerchaseItems.Single(x => x.Name == "Archback" && x.Brend == "Strike pro");
             return View(archback);
         }
 
-        public IActionResult BuyArchback(PerchaseModel model)
+        public IActionResult BuyArchback(PurchaseModel model)
         {
             archback = archback = _content.AllPerchaseItems.Single(x => x.Name == "Archback" && x.Brend == "Strike pro");
             archback.Colour = model.Colour;
@@ -356,7 +356,7 @@ namespace Shop.Controllers
         public IActionResult FindItem2(string Find)
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             string Find2 = "?";
             if (Find !=null)
             {
@@ -374,7 +374,7 @@ namespace Shop.Controllers
         public IActionResult Voblers()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
            
             result = items.Where(x => x.Type == "Vobler").ToList();
             return View(result);
@@ -383,13 +383,13 @@ namespace Shop.Controllers
 
 
         // Tiro
-        public PerchaseModel tiro = new PerchaseModel();
+        public PurchaseModel tiro = new PurchaseModel();
         public IActionResult Tiro()
         {
             tiro = _content.AllPerchaseItems.Single(x => x.Name == "Tiro" && x.Brend == "Graphiteleader");
             return View(tiro);
         }
-        public IActionResult BuyTiro(PerchaseModel model)
+        public IActionResult BuyTiro(PurchaseModel model)
         {
             tiro = _content.AllPerchaseItems.Single(x => x.Name == "Tiro" && x.Brend == "Graphiteleader");
             switch (model.Property)
@@ -417,13 +417,13 @@ namespace Shop.Controllers
         }
 
         // Vivo
-        public PerchaseModel vivo_nuovo  = new PerchaseModel();
+        public PurchaseModel vivo_nuovo  = new PurchaseModel();
         public IActionResult VivoNuovo()
         {
             vivo_nuovo = _content.AllPerchaseItems.Single(x => x.Name == "Vivo Nuovo" && x.Brend == "Graphiteleader");
             return View(vivo_nuovo);
         }
-        public IActionResult BuyVivoNuovo(PerchaseModel model)
+        public IActionResult BuyVivoNuovo(PurchaseModel model)
         {
             vivo_nuovo = _content.AllPerchaseItems.Single(x => x.Name == "Vivo Nuovo" && x.Brend == "Graphiteleader");
             switch (model.Property)
@@ -467,13 +467,13 @@ namespace Shop.Controllers
         /// </summary>
 
         //IceCube
-        public PerchaseModel icecube = new PerchaseModel();
+        public PurchaseModel icecube = new PurchaseModel();
         public IActionResult IceCube()
         {
             icecube = _content.AllPerchaseItems.Single(x => x.Name == "Ice Cube" && x.Brend == "Tict");
             return View(icecube);
         }
-        public IActionResult BuyIceCube(PerchaseModel model)
+        public IActionResult BuyIceCube(PurchaseModel model)
         {
             icecube = _content.AllPerchaseItems.Single(x => x.Name == "Ice Cube" && x.Brend == "Tict");
             switch (model.Property)
@@ -502,13 +502,13 @@ namespace Shop.Controllers
 
 
         // Sram 
-        public PerchaseModel sram = new PerchaseModel();
+        public PurchaseModel sram = new PurchaseModel();
         public IActionResult Sram()
         {
             sram = _content.AllPerchaseItems.Single(x => x.Name == "Sram" && x.Brend == "Tict");
             return View(sram);
         }
-        public IActionResult BuySram(PerchaseModel model)
+        public IActionResult BuySram(PurchaseModel model)
         {
             sram = _content.AllPerchaseItems.Single(x => x.Name == "Sram" && x.Brend == "Tict");
             switch (model.Property)
@@ -538,13 +538,13 @@ namespace Shop.Controllers
 
 
         // Inbite
-        public PerchaseModel inbite = new PerchaseModel();
+        public PurchaseModel inbite = new PurchaseModel();
         public IActionResult Inbite()
         {
             inbite = _content.AllPerchaseItems.Single(x => x.Name == "Inbite" && x.Brend == "Tict");
             return View(inbite);
         }
-        public IActionResult BuyInbite(PerchaseModel model)
+        public IActionResult BuyInbite(PurchaseModel model)
         {
             inbite = _content.AllPerchaseItems.Single(x => x.Name == "Inbite" && x.Brend == "Tict");
             switch (model.Property)
@@ -571,13 +571,13 @@ namespace Shop.Controllers
 
 
         //Finezza
-        public PerchaseModel finezza = new PerchaseModel();
+        public PurchaseModel finezza = new PurchaseModel();
         public IActionResult Finezza()
         {
             finezza = _content.AllPerchaseItems.Single(x => x.Name == "Finezza" && x.Brend == "Graphiteleader");
             return View(finezza);
         }
-        public IActionResult BuyFinezza(PerchaseModel model)
+        public IActionResult BuyFinezza(PurchaseModel model)
         {
             finezza = _content.AllPerchaseItems.Single(x => x.Name == "Finezza" && x.Brend == "Graphiteleader");
             switch (model.Property)
@@ -606,13 +606,13 @@ namespace Shop.Controllers
 
 
         //Calamaretti 
-        public PerchaseModel calamaretti = new PerchaseModel();
+        public PurchaseModel calamaretti = new PurchaseModel();
         public IActionResult Calamaretti()
         {
             calamaretti = _content.AllPerchaseItems.Single(x => x.Name == "Calamaretti" && x.Brend == "Graphiteleader");
             return View(calamaretti);
         }
-        public IActionResult BuyCalamaretti(PerchaseModel model)
+        public IActionResult BuyCalamaretti(PurchaseModel model)
         {
             calamaretti = _content.AllPerchaseItems.Single(x => x.Name == "Calamaretti" && x.Brend == "Graphiteleader");
             switch (model.Property)
@@ -641,13 +641,13 @@ namespace Shop.Controllers
 
 
         //Silverado
-        public PerchaseModel silverado = new PerchaseModel();
+        public PurchaseModel silverado = new PurchaseModel();
         public IActionResult Silverado()
         {
             silverado = _content.AllPerchaseItems.Single(x => x.Name == "Silverado" && x.Brend == "Graphiteleader");
             return View(silverado);
         }
-        public IActionResult BuySilverado(PerchaseModel model)
+        public IActionResult BuySilverado(PurchaseModel model)
         {
             silverado = _content.AllPerchaseItems.Single(x => x.Name == "Silverado" && x.Brend == "Graphiteleader");
             switch (model.Property)
@@ -676,13 +676,13 @@ namespace Shop.Controllers
 
 
         //Poseidon 
-        public PerchaseModel poseidon = new PerchaseModel();
+        public PurchaseModel poseidon = new PurchaseModel();
         public IActionResult Poseidon()
         {
             poseidon = _content.AllPerchaseItems.Single(x => x.Name == "Poseidon Salty Sensation" && x.Brend == "Ever Green");
             return View(poseidon);
         }
-        public IActionResult BuyPoseidon(PerchaseModel model)
+        public IActionResult BuyPoseidon(PurchaseModel model)
         {
             poseidon = _content.AllPerchaseItems.Single(x => x.Name == "Poseidon Salty Sensation" && x.Brend == "Ever Green");
             switch (model.Property)
@@ -711,13 +711,13 @@ namespace Shop.Controllers
 
 
         // Squidlaw 
-        public PerchaseModel squidlaw = new PerchaseModel();
+        public PurchaseModel squidlaw = new PurchaseModel();
         public IActionResult Squidlaw()
         {
             squidlaw = _content.AllPerchaseItems.Single(x => x.Name == "Squidlaw Imperial" && x.Brend == "Ever Green");
             return View(squidlaw);
         }
-        public IActionResult BuySquidlaw(PerchaseModel model)
+        public IActionResult BuySquidlaw(PurchaseModel model)
         {
             squidlaw = _content.AllPerchaseItems.Single(x => x.Name == "Squidlaw Imperial" && x.Brend == "Ever Green");
             switch (model.Property)
@@ -746,13 +746,13 @@ namespace Shop.Controllers
 
 
         // Jackall Rerange
-        public PerchaseModel rerange = new PerchaseModel();
+        public PurchaseModel rerange = new PurchaseModel();
         public IActionResult Rerange()
         {
             rerange = _content.AllPerchaseItems.Single(x => x.Name == "Rerange" && x.Brend == "Jackall");
             return View(rerange);
         }
-        public IActionResult BuyRerange(PerchaseModel model)
+        public IActionResult BuyRerange(PurchaseModel model)
         {
             rerange = _content.AllPerchaseItems.Single(x => x.Name == "Rerange" && x.Brend == "Jackall");
             switch (model.Size)
@@ -778,13 +778,13 @@ namespace Shop.Controllers
 
 
         // Shimano Stradic 
-        public PerchaseModel stradic = new PerchaseModel();
+        public PurchaseModel stradic = new PurchaseModel();
         public IActionResult Stradic()
         {
             stradic = _content.AllPerchaseItems.Single(x => x.Name == "Stradic" && x.Brend == "Shimano");
             return View(stradic);
         }
-        public IActionResult BuyStradic(PerchaseModel model)
+        public IActionResult BuyStradic(PurchaseModel model)
         {
             stradic = _content.AllPerchaseItems.Single(x => x.Name == "Stradic" && x.Brend == "Shimano");
             switch (model.Size)
@@ -814,13 +814,13 @@ namespace Shop.Controllers
 
 
         //Shimano Ultegra
-        public PerchaseModel ultegra = new PerchaseModel();
+        public PurchaseModel ultegra = new PurchaseModel();
         public IActionResult Ultegra()
         {
             ultegra = _content.AllPerchaseItems.Single(x => x.Name == "Ultegra" && x.Brend == "Shimano");
             return View(ultegra);
         }
-        public IActionResult BuyUltegra(PerchaseModel model)
+        public IActionResult BuyUltegra(PurchaseModel model)
         {
             ultegra = _content.AllPerchaseItems.Single(x => x.Name == "Ultegra" && x.Brend == "Shimano");
             switch (model.Size)
@@ -850,13 +850,13 @@ namespace Shop.Controllers
 
 
         //Shimano Twin Power 
-        public PerchaseModel twinpower = new PerchaseModel();
+        public PurchaseModel twinpower = new PurchaseModel();
         public IActionResult TwinPower()
         {
             twinpower = _content.AllPerchaseItems.Single(x => x.Name == "Twin Power" && x.Brend == "Shimano");
             return View(twinpower);
         }
-        public IActionResult BuyTwinPower(PerchaseModel model)
+        public IActionResult BuyTwinPower(PurchaseModel model)
         {
             twinpower = _content.AllPerchaseItems.Single(x => x.Name == "Twin Power" && x.Brend == "Shimano");
             switch (model.Size)
@@ -886,13 +886,13 @@ namespace Shop.Controllers
 
 
         //Shimano Stella
-        public PerchaseModel stella = new PerchaseModel();
+        public PurchaseModel stella = new PurchaseModel();
         public IActionResult Stella()
         {
             stella = _content.AllPerchaseItems.Single(x => x.Name == "Stella" && x.Brend == "Shimano");
             return View(stella);
         }
-        public IActionResult BuyStella(PerchaseModel model)
+        public IActionResult BuyStella(PurchaseModel model)
         {
             stella = _content.AllPerchaseItems.Single(x => x.Name == "Stella" && x.Brend == "Shimano");
             switch (model.Size)
@@ -922,13 +922,13 @@ namespace Shop.Controllers
 
 
         //Daiwa Caldia LT
-        public PerchaseModel caldia = new PerchaseModel();
+        public PurchaseModel caldia = new PurchaseModel();
         public IActionResult Caldia()
         {
             caldia = _content.AllPerchaseItems.Single(x => x.Name == "Caldia LT" && x.Brend == "Daiwa");
             return View(caldia);
         }
-        public IActionResult BuyCaldia(PerchaseModel model)
+        public IActionResult BuyCaldia(PurchaseModel model)
         {
             caldia = _content.AllPerchaseItems.Single(x => x.Name == "Caldia LT" && x.Brend == "Daiwa");
             switch (model.Size)
@@ -959,13 +959,13 @@ namespace Shop.Controllers
 
 
         // Daiwa Exist LT
-        public PerchaseModel exist = new PerchaseModel();
+        public PurchaseModel exist = new PurchaseModel();
         public IActionResult Exist()
         {
             exist = _content.AllPerchaseItems.Single(x => x.Name == "Exist LT");
             return View(exist);
         }
-        public IActionResult BuyExist(PerchaseModel model)
+        public IActionResult BuyExist(PurchaseModel model)
         {
             exist = _content.AllPerchaseItems.Single(x => x.Name == "Exist LT");
             switch (model.Size)
@@ -994,14 +994,14 @@ namespace Shop.Controllers
         }
 
         // DAIWA Luvias LT 
-        public PerchaseModel luvias = new PerchaseModel();
+        public PurchaseModel luvias = new PurchaseModel();
         public IActionResult Luvias()
         {
             
             luvias = _content.AllPerchaseItems.Single(x => x.Name == "Luvias LT");
             return View(luvias);
         }
-        public IActionResult BuyLuvias(PerchaseModel model)
+        public IActionResult BuyLuvias(PurchaseModel model)
         {
             luvias = _content.AllPerchaseItems.Single(x => x.Name == "Luvias LT");
             switch (model.Size)
@@ -1039,13 +1039,13 @@ namespace Shop.Controllers
 
         // Lucky Craft Pointer
 
-        public PerchaseModel pointer = new PerchaseModel();
+        public PurchaseModel pointer = new PurchaseModel();
         public IActionResult Pointer()
         {
             pointer = _content.AllPerchaseItems.Single(x => x.Name == "Pointer" && x.Brend == "Lucky Craft");
             return View(pointer);
         }
-        public IActionResult BuyPointer(PerchaseModel model)
+        public IActionResult BuyPointer(PurchaseModel model)
         {
             pointer = _content.AllPerchaseItems.Single(x => x.Name == "Pointer" && x.Brend == "Lucky Craft");
             switch (model.Size)
@@ -1071,13 +1071,13 @@ namespace Shop.Controllers
 
         // Lucky Craft Sammy
 
-        public PerchaseModel sammy = new PerchaseModel();
+        public PurchaseModel sammy = new PurchaseModel();
         public IActionResult Sammy()
         {
             sammy = _content.AllPerchaseItems.Single(x => x.Name == "Sammy" && x.Brend == "Lucky Craft");
             return View(sammy);
         }
-        public IActionResult BuySammy(PerchaseModel model)
+        public IActionResult BuySammy(PurchaseModel model)
         {
             sammy = _content.AllPerchaseItems.Single(x => x.Name == "Sammy" && x.Brend == "Lucky Craft");
             switch (model.Size)

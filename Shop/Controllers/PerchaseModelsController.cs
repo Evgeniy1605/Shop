@@ -61,7 +61,7 @@ namespace Shop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PerchaseModel perchaseModel)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PurchaseModel perchaseModel)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Shop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PerchaseModel perchaseModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brend,Price,Discount,Image,Colour,Size,Page,Type,Property,MinMaxPrice")] PurchaseModel perchaseModel)
         {
             if (id != perchaseModel.Id)
             {

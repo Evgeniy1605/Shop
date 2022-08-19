@@ -76,7 +76,7 @@ namespace Shop.Controllers
            
             else
             {
-                PerchaseModel NewPerchase = new PerchaseModel() { Name = input.Name, Brend = input.Brend, Image = input.Image, Page = input.NameOfPage, Price = 0, Colour = "_", Discount = 0, Size = "_"};
+                PurchaseModel NewPerchase = new PurchaseModel() { Name = input.Name, Brend = input.Brend, Image = input.Image, Page = input.NameOfPage, Price = 0, Colour = "_", Discount = 0, Size = "_"};
                 InformationAbautNewProdact newProdact = new InformationAbautNewProdact() { Name = input.Name, Brend = input.Brend, Image = input.Image, AditionalInformation = input.InformatinOfThePage, Page = input.NameOfPage };
                 _content.Add(NewPerchase);
                 _content.SaveChanges();
@@ -92,11 +92,11 @@ namespace Shop.Controllers
         }
 
 
-        public List<PerchaseModel> items = new List<PerchaseModel>();
+        public List<PurchaseModel> items = new List<PurchaseModel>();
         public IActionResult GraphiteleaderRods()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
 
             result = items.Where(x => x.Brend == "Graphiteleader").ToList();
             return View(result);
@@ -105,7 +105,7 @@ namespace Shop.Controllers
         public IActionResult AllRods()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
 
             result = items.Where(x => x.Type == "Rod").ToList();
             return View(result);
@@ -114,7 +114,7 @@ namespace Shop.Controllers
         public IActionResult TodaysBestOffers()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Discount > 0).ToList();
             return View(result);
         }
@@ -122,7 +122,7 @@ namespace Shop.Controllers
         public IActionResult TictRods()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Tict").ToList();
             return View(result);
         }
@@ -131,7 +131,7 @@ namespace Shop.Controllers
         public IActionResult EverGreenRods()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Ever Green").ToList();
             return View(result);
         }
@@ -139,7 +139,7 @@ namespace Shop.Controllers
         public IActionResult StrikePro()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Strike pro").ToList();
             return View(result);
         }
@@ -148,7 +148,7 @@ namespace Shop.Controllers
         public IActionResult Zipbaits()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Zipbaits").ToList();
             return View(result);
         }
@@ -156,7 +156,7 @@ namespace Shop.Controllers
         public IActionResult JACKALL()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "JACKALL").ToList();
             return View(result);
         }
@@ -164,7 +164,7 @@ namespace Shop.Controllers
         public IActionResult Wheels()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Type == "Wheel").ToList();
             return View("FoundProducts",result);
         }
@@ -172,7 +172,7 @@ namespace Shop.Controllers
         public IActionResult Daiwa()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Daiwa").ToList();
             return View("FoundProducts", result);
         }
@@ -180,7 +180,7 @@ namespace Shop.Controllers
         public IActionResult Shimano()
         {
             items = _content.AllPerchaseItems.ToList();
-            var result = new List<PerchaseModel>();
+            var result = new List<PurchaseModel>();
             result = items.Where(x => x.Brend == "Shimano").ToList();
             return View("FoundProducts", result);
         }
