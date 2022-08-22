@@ -66,26 +66,7 @@ namespace Shop.Controllers
             InputModel input = new InputModel();
             return View(input);
         }
-        public IActionResult SubminNewPerchas(InputModel input)
-        {
-            if (input.Brend == null || input.Name == null || input.NameOfPage == null || input.InformatinOfThePage == null || input.Image == null)
-            {
-                return View("EmptyGAp");
-            }
-            
-           
-            else
-            {
-                PurchaseModel NewPerchase = new PurchaseModel() { Name = input.Name, Brend = input.Brend, Image = input.Image, Page = input.NameOfPage, Price = 0, Colour = "_", Discount = 0, Size = "_"};
-                InformationAboutNewProduct newProdact = new InformationAboutNewProduct() { Name = input.Name, Brend = input.Brend, Image = input.Image, AditionalInformation = input.InformatinOfThePage, Page = input.NameOfPage };
-                _content.Add(NewPerchase);
-                _content.SaveChanges();
-                _content.Add(newProdact);
-                _content.SaveChanges();
-                return View("AdminPage");
-
-            }
-        }
+        
         public IActionResult BackToFilingGaps()
         {
             return View("AddNewPerchse");
