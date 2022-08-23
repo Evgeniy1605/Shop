@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form asp-controller="PasswordRecovery" asp-action="SendEmail">
+    <h2 class="text-center bb-db1">For recovering your password you need to input data from your account</h2>
+    <div class="container row-cols-1 w-50 ">
+        <input name="Name" type="text" placeholder="The name of your account " />
+        <label></label>
+        <input name="PhoneNumber" type="text" placeholder="Your phone number " />
+        <label></label>
+        <input type="text" placeholder="Email" name="Email" />
+        <label></label>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
