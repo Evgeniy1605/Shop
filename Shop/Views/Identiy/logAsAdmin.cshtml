@@ -9,10 +9,27 @@
 }
 
 
-<h1 class="bb-db1" >Login</h1>
-<form action="/login?ReturnUrl=@returnUrl" method="post">
-    <input type="text" name="username" placeholder="UserName" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="submit" value="login" />
-
-</form>
+<body>
+	<div class="container bb-db1">
+	<section id="content">
+			<form action="/login?ReturnUrl=@returnUrl" method="post">
+			<h1>Login</h1>
+			<div>
+					<input type="text" placeholder="Username" required="" name="username" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" name="password" />
+			</div>
+			<div>
+					<input class="btn btn-primary" type="submit" value="Log in" />
+			</form><!-- form -->
+				<a href="#">Lost your password?</a>
+			<a asp-controller="UserModels" asp-action="Create" >Register</a>
+			</div>
+		
+		<div class="button">
+		
+		</div><!-- button -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
