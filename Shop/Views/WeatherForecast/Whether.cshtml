@@ -1,0 +1,32 @@
+﻿@model WeatherModel
+<h1 class="text-center bb-db1">@Model.Location.Country</h1>
+<div>
+    <div>
+        <h2 class="text-center">
+            @Model.Location.Name
+            <a  class="btn btn-primary" asp-controller="HttpClient" asp-action="ChooseYoutCity">
+                <img src="~/Images/Icons/edit.png" width="20" />
+            </a>
+        </h2>
+
+    </div>
+</div>
+
+
+<div>
+    @foreach (var item in Model.Forecast.Forecastday)
+    {
+        <img src="@item.Day.Condition.Icon" />
+        <div>
+            <label>@item.Date</label>
+            <label>@item.Day.Condition.Text</label>
+        </div>
+        <label> Daily Chance Of Rain: @item.Day.DailyChanceOfRain %</label>
+        <div>
+            <label> Min @item.Day.MintempC °C</label>
+            <label> Max @item.Day.MaxtempC °C</label>
+        </div>
+        <br />
+
+    }
+</div>
