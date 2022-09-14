@@ -8,12 +8,32 @@
                 <img src="~/Images/Icons/edit.png" width="20" />
             </a>
         </h2>
+        <div class="text-center">
+            <h3>@Model.Location.Localtime </h3>
+            <img class="text-center align-content-center" src="@Model.Current.Condition.Icon" />
+        </div>
+        <div class="text-center">
+            <h3>@Model.Current.Condition.Text</h3>
+        </div>
+        <div class="text-center">
+            <h2>@Model.Current.TempC °C</h2>
+        </div>
+        <div class="text-center">
+            <div>
+                <h4> Feels like @Model.Current.FeelslikeC °C</h4>
+            </div>
+            <div>
+                <h4>
+                    Humidity: @Model.Current.Humidity °C
+                </h4>
+            </div>
+        </div>
 
     </div>
 </div>
 
 
-<div>
+<div class="bb-db1">
     @foreach (var item in Model.Forecast.Forecastday)
     {
         <img src="@item.Day.Condition.Icon" />
